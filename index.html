@@ -296,10 +296,12 @@ a.tile.lav.has-bubble .tile-bubble img{max-height:120px;background:#1a1428}
 .proj .card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:stretch}
 .proj .card .body{grid-column:1;grid-row:1}
 .proj .card .media{grid-column:2;grid-row:1;aspect-ratio:auto;min-height:100%;height:100%}
+.proj .card .media-col{grid-column:2;grid-row:1}
 .proj .card .media-shots{grid-column:1/-1;grid-row:2}
 @media (max-width:900px){
   .proj .card{grid-template-columns:1fr}
   .proj .card .media{grid-column:1;grid-row:2;min-height:220px;aspect-ratio:16/11}
+  .proj .card .media-col{grid-column:1;grid-row:2}
   .proj .card .media-shots{grid-row:3}
 }
 .card{
@@ -514,11 +516,66 @@ footer .cta-row .pill{
   background:#0B1020;
 }
 .card.wide .media.has-img img{object-fit:cover;object-position:left center}
-.card.wide .media.has-img.poster-tall{
-  aspect-ratio:4/5;min-height:280px;background:#111;
+.card.wide .media-col{
+  grid-column:2;grid-row:1;
+  display:flex;flex-direction:column;gap:10px;justify-content:center;
+  min-width:0;padding:14px 14px 14px 0;
+  background:linear-gradient(165deg,#12101c 0%,#1a1528 55%,#0f1422 100%);
+  align-self:stretch;
 }
-.card.wide .media.has-img.poster-tall img{
-  object-fit:contain;object-position:center top;
+.card.wide .media-col .media.has-img{
+  aspect-ratio:4/3;min-height:0;flex:0 0 auto;max-height:320px;
+  border-radius:16px;overflow:hidden;margin:0 0 0 0;
+}
+.card.wide .media.has-img.poster-balance img{
+  object-fit:cover;object-position:center 12%;
+}
+.card.wide .media-col .media-shots{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  padding:0;grid-column:auto;grid-row:auto;flex:0 0 auto;
+}
+.card.wide .media-col .media-shots img{height:88px}
+.card.wide .media-col .media-shots figcaption{font-size:11px;margin-top:5px}
+.card.wide .evidence{
+  list-style:none;margin:.9rem 0 1.05rem;padding:0;
+  display:flex;flex-direction:column;gap:9px;
+}
+.card.wide .evidence li{
+  font-size:13.5px;line-height:1.5;color:var(--ink);
+  background:linear-gradient(165deg,#FBF9FF,#F3EEFF);
+  border:1px solid rgba(79,63,138,.14);
+  border-radius:12px;padding:.62rem .8rem;
+}
+.card.wide .evidence li b{font-weight:800;color:var(--lav-ink);margin-right:4px}
+.card .media.has-img.media-gif img{object-fit:cover;object-position:center}
+.arts-layout{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:16px;align-items:stretch;
+}
+.arts-highlight{
+  display:flex;flex-direction:column;gap:12px;
+}
+.arts-highlight .pull-quote{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius-sm);box-shadow:var(--soft-shadow);
+  padding:1.1rem 1.15rem 1rem;position:relative;overflow:hidden;
+}
+.arts-highlight .pull-quote::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:6px;
+}
+.arts-highlight .pull-quote.pink::before{background:var(--pink)}
+.arts-highlight .pull-quote.lav::before{background:var(--lav)}
+.arts-highlight .pull-quote.mint::before{background:var(--mint)}
+.arts-highlight .pull-quote p{
+  font-size:clamp(1rem,1.6vw,1.15rem);font-weight:800;
+  letter-spacing:-.25px;line-height:1.45;margin:0 0 .55rem;color:var(--ink);
+}
+.arts-highlight .pull-quote cite{
+  font-style:normal;font-size:12px;font-weight:600;color:var(--mute);
+}
+@media (max-width:900px){
+  .card.wide .media-col{grid-column:1;grid-row:2;padding:0 12px 12px}
+  .arts-layout{grid-template-columns:1fr}
 }
 .card .media.has-img.m1 img{object-fit:contain;object-position:center}
 .card .media.has-img .media-badge{
@@ -715,7 +772,7 @@ footer .cta-row .pill{
   font-size:13px;font-weight:700;color:var(--mute);
   margin-bottom:.55rem;letter-spacing:-.1px;
 }
-.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.arts{display:grid;grid-template-columns:1fr;gap:12px}
 .art .cat{
   font-size:11px;font-weight:700;color:var(--lav-ink);
   background:rgba(212,204,240,.45);
@@ -1015,7 +1072,7 @@ html.tweaks-on .tweaks-panel.open{display:block}
 }
 .nav-scroll a:hover{background:var(--bg-2)}
 @media (max-width:900px){
-  .bento,.proj,.arts,.proj-sub,.about-grid{grid-template-columns:1fr}
+  .bento,.proj,.arts,.proj-sub,.about-grid,.arts-layout{grid-template-columns:1fr}
   .about-photo img{min-height:320px;aspect-ratio:1/1;max-height:420px}
   .tile.hero-main{grid-row:auto;min-height:0}
   .tile.span2{grid-column:auto}
@@ -1094,14 +1151,14 @@ html.tweaks-on .tweaks-panel.open{display:block}
             <div class="mini">真实工作先行 · 换地方也能用的课骨架</div>
           </div>
           <span class="tile-bubble" role="tooltip">
-            <img src="assets/msa/cover-method-kpi.png" alt="市监局培训示意" width="2000" height="960" loading="lazy" />
+            <img src="assets/msa/cover-method-kpi.png" alt="市监局培训现场方法与 KPI" width="2000" height="960" loading="lazy" />
           </span>
         </a>
         <a class="tile lav span2 has-bubble" href="design-demos/exp-lofter-cpsp.html">
           <div class="tile-copy">
-            <div class="k">经历 · 案例</div>
+            <div class="k">经历</div>
             <div class="v">LOFTER×CPSP 整合营销</div>
-            <div class="mini">网易 LOFTER 实习主推案例</div>
+            <div class="mini">网易 LOFTER 实习主推</div>
           </div>
           <span class="tile-bubble" role="tooltip">
             <img src="assets/lofter/inapp-row.png" alt="LOFTER 活动界面预览" width="1617" height="312" loading="lazy" />
@@ -1148,7 +1205,7 @@ html.tweaks-on .tweaks-panel.open{display:block}
           <div class="tools-cat" data-tone="lav">
             <h4>AI 类</h4>
             <div class="tools-tags">
-              <span>GPT</span><span>Claude</span><span>Grok</span><span>Bot</span>
+              <span>GPT</span><span>Claude</span><span>Grok Bot</span>
             </div>
           </div>
           <div class="tools-cat" data-tone="mint">
@@ -1162,21 +1219,6 @@ html.tweaks-on .tweaks-panel.open{display:block}
             <div class="tools-tags">
               <span>Sketch</span><span>墨刀</span><span>Slack</span><span>Notion</span>
             </div>
-          </div>
-        </div>
-        <p class="tools-more" role="note">另有制图与排版、预算与借展工具，见下方摘要。</p>
-      </div>
-
-      <div class="skills-lang is-secondary" aria-label="技能与语言">
-        <div class="skills-lang-k"><i></i>技能与语言 · 次要</div>
-        <div class="skills-lang-grid cols-2">
-          <div>
-            <h4>制图与排版</h4>
-            <p>SketchUp · AutoCAD · Rhino · Enscape · InDesign · Photoshop</p>
-          </div>
-          <div>
-            <h4>预算与借展</h4>
-            <p>Excel 预算与比价表 · 广联达 GDQ · TMS／PastPerfect</p>
           </div>
         </div>
       </div>
@@ -1224,31 +1266,38 @@ html.tweaks-on .tweaks-panel.open{display:block}
               </div>
               <div class="block feat-tone">
                 <div class="k">功能</div>
-                <p>扫邮箱 / 本地文件夹 → 解析写入飞书 → 按历史映射自动选岗 → 心跳窗与有声提醒。海报讲清价值与四步；心跳窗与报表作辅证。</p>
+                <p>扫邮箱 / 本地文件夹 → 解析写入飞书 → 按历史映射自动选岗 → 心跳窗与有声提醒。</p>
               </div>
             </div>
+            <ul class="evidence" aria-label="关键证据点">
+              <li><b>来源清楚</b>：只扫邮箱通知与本地文件夹，不直连招聘平台。</li>
+              <li><b>一键入库</b>：解析写入飞书人才库，按历史映射自动选岗。</li>
+              <li><b>漏人看得见</b>：桌面心跳窗 + 有声提醒，今日入库一目了然。</li>
+            </ul>
             <div class="links">
               <a class="link" href="design-demos/product-resume-hunter.html">查看详情</a>
               <a class="link" href="https://github.com/GAI810/Gai/tree/main/resume-hunter" target="_blank" rel="noopener">源码 · GitHub</a>
             </div>
           </div>
-          <div class="media has-img m2 poster-tall" role="img" aria-label="天下无鸽入库助手产品介绍海报">
-            <img src="assets/resume-hunter/poster-lovart-zh-fixed.png" alt="天下无鸽入库助手：产品介绍海报（价值主张与流程）" width="1600" height="2000" loading="lazy" />
-            <span class="media-badge">产品介绍海报</span>
-          </div>
-          <div class="media-shots" aria-label="功能界面缩略">
-            <figure>
-              <a class="shot-zoom" href="assets/resume-hunter/shot-menubar-hud.png" target="_blank" rel="noopener" title="查看大图">
-                <img src="assets/resume-hunter/shot-menubar-hud.png" alt="桌面悬浮窗：心跳与今日入库" width="480" height="160" loading="lazy" />
-              </a>
-              <figcaption>功能 · 桌面心跳窗，入库有声提醒 · 点击放大</figcaption>
-            </figure>
-            <figure>
-              <a class="shot-zoom" href="assets/resume-hunter/shot-status-dashboard.png" target="_blank" rel="noopener" title="查看大图">
-                <img src="assets/resume-hunter/shot-status-dashboard.png" alt="定期入库报表后台（脱敏，作辅证）" width="640" height="360" loading="lazy" />
-              </a>
-              <figcaption>辅证 · 后台报表 · 点击放大</figcaption>
-            </figure>
+          <div class="media-col" aria-label="海报与界面辅证">
+            <div class="media has-img m2 poster-balance" role="img" aria-label="天下无鸽入库助手产品介绍海报">
+              <img src="assets/resume-hunter/poster-lovart-zh-fixed.png" alt="天下无鸽入库助手：产品介绍海报（价值主张与流程）" width="1600" height="2000" loading="lazy" />
+              <span class="media-badge">产品介绍海报</span>
+            </div>
+            <div class="media-shots" aria-label="功能界面缩略">
+              <figure>
+                <a class="shot-zoom" href="assets/resume-hunter/shot-menubar-hud.png" target="_blank" rel="noopener" title="查看大图">
+                  <img src="assets/resume-hunter/shot-menubar-hud.png" alt="桌面悬浮窗：心跳与今日入库" width="480" height="160" loading="lazy" />
+                </a>
+                <figcaption>心跳窗 · 有声提醒</figcaption>
+              </figure>
+              <figure>
+                <a class="shot-zoom" href="assets/resume-hunter/shot-status-dashboard.png" target="_blank" rel="noopener" title="查看大图">
+                  <img src="assets/resume-hunter/shot-status-dashboard.png" alt="定期入库报表后台（脱敏，作辅证）" width="640" height="360" loading="lazy" />
+                </a>
+                <figcaption>后台报表 · 脱敏</figcaption>
+              </figure>
+            </div>
           </div>
         </article>
         <article class="card" aria-label="戴森球 Dashboard">
@@ -1266,12 +1315,13 @@ html.tweaks-on .tweaks-panel.open{display:block}
             </div>
             <div class="links">
               <a class="link" href="design-demos/product-dyson.html">查看详情</a>
+              <a class="link" href="assets/dyson/dyson-sphere-dashboard.html" target="_blank" rel="noopener">打开完整 HTML</a>
               <a class="link" href="https://github.com/GAI810/Gai/tree/main/dyson-sphere-dashboard" target="_blank" rel="noopener">源码 · GitHub</a>
             </div>
           </div>
-          <div class="media has-img m1" role="img" aria-label="戴森球运作监控预览">
-            <img src="assets/dyson/dyson-poster.png" alt="戴森球运作监控前端预览海报" width="1280" height="720" loading="lazy" />
-            <span class="media-badge">前端实验 · 2025.11</span>
+          <div class="media has-img m1 media-gif" aria-label="戴森球运作监控动效预览">
+            <img src="assets/dyson/dyson-preview.gif" alt="戴森球运作监控前端交互预览：自动旋转、拖拽与缩放" width="1280" height="720" loading="eager" decoding="async" />
+            <span class="media-badge">动效预览 · 2025.11</span>
           </div>
         </article>
       </div>
@@ -1357,57 +1407,6 @@ html.tweaks-on .tweaks-panel.open{display:block}
           </div>
         </div>
 
-        <div class="skill secondary" id="sk3" data-tone="lav" data-expandable>
-          <button class="skill-head" type="button" aria-expanded="false" aria-controls="sk3-body" onclick="toggleSkill('sk3')">
-            <div class="dot" aria-hidden="true">In</div>
-            <div>
-              <h3>访谈洞察与报告生成器</h3>
-              <p>将访谈片段整理为可追溯的洞察与结构化报告，同时保留反例与分歧。</p>
-            </div>
-            <div class="chev" aria-hidden="true">▾</div>
-          </button>
-          <div class="skill-body" id="sk3-body">
-            <div class="panels">
-              <div>
-                <h4>Input</h4>
-                <ul>
-                  <li>匿名访谈</li>
-                  <li>研究问题</li>
-                  <li>假设</li>
-                </ul>
-              </div>
-              <div>
-                <h4>Output</h4>
-                <ul>
-                  <li>证据链</li>
-                  <li>主题聚类</li>
-                  <li>待确认洞察</li>
-                  <li>报告初稿</li>
-                </ul>
-              </div>
-              <div>
-                <h4>四步流程</h4>
-                <div class="flow">
-                  <span>切分</span>
-                  <span>编码不自动确认</span>
-                  <span>聚类找矛盾</span>
-                  <span>洞察附正反证据</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        <div class="skill secondary skills-lang-card" data-tone="lav" aria-label="技能与语言摘要">
-          <div class="skill-head">
-            <div class="dot" aria-hidden="true">技</div>
-            <div>
-              <h3>技能与语言</h3>
-              <p>制图与排版（SketchUp／CAD／Rhino／Enscape／InDesign／PS）· 预算与借展（Excel／广联达 GDQ／TMS／PastPerfect）。常用工具见关于区三类：AI／视频剪辑／项目管理。</p>
-            </div>
-            <div></div>
-          </div>
-        </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1418,40 +1417,56 @@ html.tweaks-on .tweaks-panel.open{display:block}
         <h2>文章</h2>
         <p>媒体特稿外链；个人写作与学术报告可站内阅读。</p>
       </div>
-      <div class="arts-wrap">
-        <div class="arts-group" data-cat="media">
-          <h3 class="arts-cat">媒体特稿</h3>
-          <div class="arts">
-            <a class="art" href="https://mp.weixin.qq.com/s/a1nLbCqj2izV96ENKYA63Q" target="_blank" rel="noopener">
-              <span class="mark" aria-hidden="true"></span>
-              <span class="cat">芭莎</span>
-              <h3>独家｜在深圳，重新发现古物与收藏的意义</h3>
-              <span class="go">阅读原文 →</span>
-            </a>
+      <div class="arts-layout">
+        <div class="arts-wrap">
+          <div class="arts-group" data-cat="media">
+            <h3 class="arts-cat">媒体特稿</h3>
+            <div class="arts">
+              <a class="art" href="https://mp.weixin.qq.com/s/a1nLbCqj2izV96ENKYA63Q" target="_blank" rel="noopener">
+                <span class="mark" aria-hidden="true"></span>
+                <span class="cat">芭莎</span>
+                <h3>独家｜在深圳，重新发现古物与收藏的意义</h3>
+                <span class="go">阅读原文 →</span>
+              </a>
+            </div>
+          </div>
+          <div class="arts-group" data-cat="personal">
+            <h3 class="arts-cat">个人写作</h3>
+            <div class="arts">
+              <a class="art" href="design-demos/article-guankou.html">
+                <span class="mark" aria-hidden="true"></span>
+                <span class="cat">随笔</span>
+                <h3>穿梭于港深之间：我所见的关口众生</h3>
+                <span class="go">站内阅读 →</span>
+              </a>
+            </div>
+          </div>
+          <div class="arts-group" data-cat="academic">
+            <h3 class="arts-cat">学术</h3>
+            <div class="arts">
+              <a class="art" href="design-demos/article-hist5568.html">
+                <span class="mark" aria-hidden="true"></span>
+                <span class="cat">HIST5568</span>
+                <h3>民國經濟發展中行業力量與政府的關係：從抗衡到服從</h3>
+                <span class="go">站内阅读 →</span>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="arts-group" data-cat="personal">
-          <h3 class="arts-cat">个人写作</h3>
-          <div class="arts">
-            <a class="art" href="design-demos/article-guankou.html">
-              <span class="mark" aria-hidden="true"></span>
-              <span class="cat">随笔</span>
-              <h3>穿梭于港深之间：我所见的关口众生</h3>
-              <span class="go">站内阅读 →</span>
-            </a>
+        <aside class="arts-highlight" aria-label="文章金句">
+          <div class="pull-quote pink">
+            <p>「现代人的通勤是一种具有强烈现实主义性质的童话故事。」</p>
+            <cite>— 《穿梭于港深之间：我所见的关口众生》</cite>
           </div>
-        </div>
-        <div class="arts-group" data-cat="academic">
-          <h3 class="arts-cat">学术</h3>
-          <div class="arts">
-            <a class="art" href="design-demos/article-hist5568.html">
-              <span class="mark" aria-hidden="true"></span>
-              <span class="cat">HIST5568</span>
-              <h3>民國經濟發展中行業力量與政府的關係：從抗衡到服從</h3>
-              <span class="go">站内阅读 →</span>
-            </a>
+          <div class="pull-quote lav">
+            <p>「或许，疲惫、奋斗与包容，本身就是深圳的谜底之一。」</p>
+            <cite>— 同上</cite>
           </div>
-        </div>
+          <div class="pull-quote mint">
+            <p>「行業與政府之間的關係逐漸走向後者強勢於前者的失衡情形。」</p>
+            <cite>— 《從抗衡到服從》</cite>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -1567,7 +1582,7 @@ html.tweaks-on .tweaks-panel.open{display:block}
             </div>
           </div>
           <div class="feat-actions">
-            <a class="cta-sm" href="design-demos/exp-lofter-cpsp.html">查看案例 →</a>
+            <a class="cta-sm" href="design-demos/exp-lofter-cpsp.html">查看详情 →</a>
           </div>
         </div>
       </article>
@@ -1624,10 +1639,10 @@ html.tweaks-on .tweaks-panel.open{display:block}
               <span>女性访谈</span>
               <span>Prompt 调优</span>
               <span>上下文压缩</span>
-              <span>AI 前端 Demo</span>
+              <span>AI 前端原型</span>
               <span>数据驱动优化</span>
             </div>
-            <p class="blurb">做女性用户访谈、写 Prompt，还搭了前端 Demo</p>
+            <p class="blurb">做女性用户访谈、写 Prompt，还搭了前端原型</p>
           </div>
         </article>
         <article>
