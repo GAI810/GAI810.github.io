@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>盖之怿 — 市场传播 X AI Native</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" />
+<style>
+:root{
+  --bg:#D5CEF0;
+  --bg-2:#E4DFF5;
+  --ink:#14161C;
+  --mute:#3A4050;
+  --card:#FFFFFF;
+  --line:rgba(28,31,38,.08);
+  --pink:#F0C8D4;
+  --mint:#BFE5D6;
+  --lav:#D4CCF0;
+  --pink-ink:#8B3D52;
+  --mint-ink:#2A6B56;
+  --lav-ink:#4F3F8A;
+  --accent:#4F3F8A;
+  --radius:24px;
+  --radius-sm:18px;
+  --soft-shadow:0 14px 36px -20px rgba(28,31,38,.30);
+  --font:"Plus Jakarta Sans","Noto Sans SC",system-ui,sans-serif;
+  --base:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+section[id],#about,#projects,#skills,#articles,#experience{scroll-margin-top:78px}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  font-size:var(--base);
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 45% at 8% 0%, rgba(244,200,214,.72), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 96% 6%, rgba(180,220,210,.55), transparent 50%),
+    radial-gradient(ellipse 48% 48% at 72% 92%, rgba(180,170,230,.52), transparent 55%),
+    var(--bg);
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(100% - 2.25rem, 1120px);margin-inline:auto}
+
+/* Nav */
+.nav{
+  position:sticky;top:0;z-index:40;
+  backdrop-filter:blur(16px) saturate(1.15);
+  -webkit-backdrop-filter:blur(16px) saturate(1.15);
+  background:rgba(213,206,240,.86);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px;gap:1rem}
+.brand{font-weight:700;font-size:15px;letter-spacing:-.2px;display:inline-flex;align-items:center;gap:8px}
+.brand .pill{
+  font-size:12px;font-weight:700;color:#fff;
+  background:var(--accent);padding:4px 10px;border-radius:999px;
+}
+.nav-links{display:flex;gap:2px;list-style:none;flex-wrap:wrap}
+.nav-links a{
+  padding:8px 12px;font-size:13px;color:var(--mute);
+  border-radius:999px;font-weight:500;transition:background .15s,color .15s,box-shadow .15s;
+}
+.nav-links a:hover,.nav-links a.is-on{
+  background:#fff;color:var(--ink);box-shadow:var(--soft-shadow);
+}
+.nav-scroll a.is-on{
+  background:var(--ink);color:#fff;border-color:transparent;
+}
+
+/* Hero bento */
+.hero{padding:3.25rem 0 1.5rem}
+.bento{
+  display:grid;
+  grid-template-columns:1.45fr 1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:14px;
+  overflow:visible;
+}
+.tile{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:1.35rem 1.4rem;
+  box-shadow:var(--soft-shadow);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.tile:hover{transform:translateY(-2px);box-shadow:0 18px 40px -18px rgba(28,31,38,.34)}
+.tile.hero-main{
+  grid-row:1 / span 2;
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:340px;padding:1.85rem 1.9rem;
+  position:relative;overflow:hidden;
+}
+.tile.hero-main::after{
+  content:"";
+  position:absolute;right:-56px;bottom:-70px;width:160px;height:160px;
+  border-radius:40% 60% 55% 45%;
+  background:radial-gradient(circle at 30% 30%, rgba(240,200,212,.38), rgba(212,204,240,.16) 60%, transparent 70%);
+  pointer-events:none;z-index:0;
+}
+.tile.hero-main > *{position:relative;z-index:1}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;color:#fff;
+  background:var(--pink-ink);padding:5px 12px;border-radius:999px;
+  align-self:flex-start;margin-bottom:1.15rem;
+}
+.hero-eyebrow i{
+  width:6px;height:6px;border-radius:50%;background:#fff;opacity:.85;display:inline-block;
+}
+.tile h1{
+  font-size:clamp(2.25rem,4.4vw,3.35rem);
+  font-weight:800;letter-spacing:-1.2px;line-height:1.1;margin-bottom:.7rem;
+}
+.tile h1 em{
+  font-style:normal;
+  font-weight:800;
+  color:inherit;
+  border-bottom:3px solid var(--pink);
+  padding-bottom:2px;
+}
+.who{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.45rem .65rem;
+  margin-bottom:.55rem;font-weight:500;
+}
+.who strong{
+  font-size:clamp(1.35rem,2.4vw,1.85rem);
+  font-weight:800;letter-spacing:-.6px;line-height:1.2;
+  color:var(--ink);
+}
+.who .who-role{
+  font-size:15px;font-weight:500;color:var(--mute);
+  letter-spacing:-.1px;
+}
+.who .who-role::before{
+  content:"/";
+  margin-right:.55rem;
+  color:rgba(28,31,38,.28);
+  font-weight:600;
+}
+.fields{font-size:14px;color:var(--mute);margin-bottom:1.5rem;max-width:38ch;line-height:1.55}
+.cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--ink);color:#fff;font-weight:600;font-size:14px;
+  padding:12px 20px;border-radius:999px;align-self:flex-start;
+  transition:opacity .15s, transform .15s;
+}
+.cta:hover{opacity:.9;transform:translateY(-1px)}
+.tile.pink{background:linear-gradient(165deg,#FBE8EE,var(--pink))}
+.tile.mint{background:linear-gradient(165deg,#E8F7F1,var(--mint))}
+.tile.lav{background:linear-gradient(165deg,#EEEAF8,var(--lav))}
+.tile .k{font-size:12px;font-weight:600;color:var(--mute);margin-bottom:8px}
+.tile .v{font-size:1.18rem;font-weight:700;letter-spacing:-.35px;line-height:1.35}
+.tile.pink .v{color:var(--pink-ink)}
+.tile.mint .v{color:var(--mint-ink)}
+.tile.lav .v{color:var(--lav-ink)}
+.tile .mini{margin-top:auto;padding-top:1rem;font-size:13px;color:var(--mute)}
+.tile.span2{grid-column:2 / span 2}
+a.tile{display:flex;flex-direction:column;color:inherit;text-decoration:none;cursor:pointer}
+a.tile:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+a.tile.has-thumb{position:relative;overflow:hidden;min-height:148px;padding-bottom:1.15rem}
+a.tile.has-thumb .tile-thumb{
+  margin-top:.85rem;width:100%;height:64px;object-fit:contain;object-position:left center;
+  border-radius:12px;background:rgba(255,255,255,.55);border:1px solid rgba(28,31,38,.06);
+  box-shadow:0 6px 16px -10px rgba(28,31,38,.28);
+}
+a.tile.has-thumb .mini{padding-top:.65rem}
+
+/* Hero 彩卡：默认纯文案，悬停整卡铺满示意图 */
+a.tile.has-bubble{
+  position:relative;
+  overflow:visible;
+  z-index:1;
+  min-height:148px;
+}
+a.tile.has-bubble .tile-copy{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;gap:0;flex:1;
+}
+a.tile.has-bubble .tile-bubble{
+  position:absolute;
+  left:50%;
+  top:calc(100% + 10px);
+  bottom:auto;
+  transform:translateX(-50%) translateY(-6px);
+  width:min(280px, 72vw);
+  padding:8px;
+  border-radius:16px;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 18px 40px -18px rgba(28,31,38,.42), 0 8px 20px -12px rgba(28,31,38,.28);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .2s ease, transform .2s ease, visibility .2s;
+  z-index:5;
+}
+a.tile.has-bubble .tile-bubble::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:100%;
+  top:auto;
+  transform:translateX(-50%);
+  border:7px solid transparent;
+  border-bottom-color:#fff;
+  filter:drop-shadow(0 -1px 0 var(--line));
+}
+a.tile.has-bubble .tile-bubble img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:160px;
+  object-fit:contain;
+  object-position:center;
+  border-radius:10px;
+  background:#0B1020;
+}
+a.tile.mint.has-bubble .tile-bubble img,
+a.tile.lav.has-bubble .tile-bubble img{background:#F4F2FA}
+a.tile.lav.has-bubble .tile-bubble{width:min(360px, 80vw)}
+a.tile.lav.has-bubble .tile-bubble img{max-height:120px;background:#1a1428}
+@media (hover:hover) and (pointer:fine){
+  a.tile.has-bubble:hover,
+  a.tile.has-bubble:focus-visible{z-index:6}
+  a.tile.has-bubble:hover .tile-bubble,
+  a.tile.has-bubble:focus-visible .tile-bubble{
+    opacity:1;visibility:visible;
+    transform:translateX(-50%) translateY(0);
+  }
+}
+@media (hover:none), (pointer:coarse){
+  a.tile.has-bubble .tile-bubble{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  a.tile.has-bubble .tile-bubble{transition:none}
+}
+.card .media-shots{
+  display:grid;grid-template-columns:1fr 1.35fr;gap:10px;
+  padding:0 1.25rem 1.15rem;
+}
+.card .media-shots figure{
+  margin:0;background:var(--bg-2);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;padding:10px;
+}
+.card .media-shots a.shot-zoom{
+  display:block;border-radius:10px;outline:none;
+}
+.card .media-shots a.shot-zoom:focus-visible{
+  box-shadow:0 0 0 2px var(--lav-ink);
+}
+.card .media-shots img{
+  width:100%;height:168px;object-fit:contain;object-position:center;background:#fff;
+  border-radius:10px;cursor:zoom-in;transition:transform .18s ease;
+}
+.card .media-shots a.shot-zoom:hover img{transform:scale(1.015)}
+.card .media-shots figcaption{
+  font-size:12px;font-weight:600;color:var(--mute);
+  margin-top:7px;padding:0 2px;line-height:1.35;
+}
+.card .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:.15rem}
+.card .tag{
+  font-size:11px;font-weight:700;color:var(--mint-ink);
+  background:rgba(191,229,214,.45);border:1px solid rgba(42,107,86,.14);
+  padding:3px 9px;border-radius:999px;
+}
+
+
+/* Sections */
+.sec{padding:2.85rem 0}
+.sec-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:1.25rem;gap:1rem;flex-wrap:wrap;
+}
+.sec-head h2{
+  font-size:clamp(1.5rem,2.6vw,1.95rem);
+  font-weight:800;letter-spacing:-.45px;
+}
+.sec-head p{font-size:15px;color:var(--mute);max-width:46ch;line-height:1.55;font-weight:500}
+
+/* Projects */
+.proj{display:grid;grid-template-columns:1fr;gap:14px;align-items:stretch}
+.proj .wide{grid-row:auto}
+.proj .card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:stretch}
+.proj .card .body{grid-column:1;grid-row:1}
+.proj .card .media{grid-column:2;grid-row:1;aspect-ratio:auto;min-height:100%;height:100%}
+.proj .card .media-shots{grid-column:1/-1;grid-row:2}
+@media (max-width:900px){
+  .proj .card{grid-template-columns:1fr}
+  .proj .card .media{grid-column:1;grid-row:2;min-height:220px;aspect-ratio:16/11}
+  .proj .card .media-shots{grid-row:3}
+}
+.card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius-sm);overflow:hidden;
+  box-shadow:var(--soft-shadow);
+  display:flex;flex-direction:column;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 18px 40px -18px rgba(28,31,38,.34)}
+.card .media{
+  aspect-ratio:16/11;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:14px 16px;gap:12px;
+  position:relative;
+}
+.card .media .ph-label{
+  font-size:12px;font-weight:600;color:rgba(28,31,38,.55);
+  background:rgba(255,255,255,.55);backdrop-filter:blur(6px);
+  padding:5px 10px;border-radius:999px;border:1px solid rgba(28,31,38,.06);
+}
+.card .media .ph-hint{
+  font-size:12px;font-weight:600;color:rgba(28,31,38,.4);
+}
+.card .m1{background:linear-gradient(145deg,var(--pink),#F8C9D4)}
+.card .m2{background:linear-gradient(145deg,var(--mint),#BFE3D6)}
+.card .m3{background:linear-gradient(145deg,var(--lav),#C9C0E8)}
+.card .body{padding:1.25rem 1.35rem 1.35rem;display:flex;flex-direction:column;gap:.65rem;flex:1}
+.card h3{font-size:clamp(1.2rem,2vw,1.4rem);font-weight:800;letter-spacing:-.4px;line-height:1.25;color:var(--ink)}
+.card p{font-size:15px;color:var(--mute);line-height:1.65}
+.card .intro{
+  display:grid;gap:10px;margin:.15rem 0 .1rem;
+}
+.card .intro .block{
+  border-radius:14px;border:1px solid var(--line);
+  background:linear-gradient(165deg,#FBF9FF,var(--bg-2));
+  padding:.75rem .9rem .8rem;
+}
+.card .intro .block.feat-tone{
+  background:linear-gradient(165deg,#E8F7F1,rgba(191,229,214,.55));
+}
+.card .intro .k{
+  font-size:12px;font-weight:800;letter-spacing:.02em;
+  color:var(--lav-ink);margin-bottom:.35rem;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.card .intro .k::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--lav-ink);opacity:.85;
+}
+.card .intro .block.feat-tone .k{color:var(--mint-ink)}
+.card .intro .block.feat-tone .k::before{background:var(--mint-ink)}
+.card .intro .block p{
+  font-size:14px;color:var(--ink);line-height:1.6;margin:0;
+  font-weight:500;
+}
+.card .tag{font-size:12px;padding:4px 10px}
+.card .link{
+  font-size:13px;font-weight:700;color:var(--accent);
+  text-decoration:underline;text-underline-offset:3px;
+  align-self:flex-start;
+}
+.card .link:hover{opacity:.8}
+.card.wide .media{aspect-ratio:16/12;min-height:220px}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:1fr;gap:12px}
+.skill{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius-sm);overflow:hidden;
+  box-shadow:var(--soft-shadow);
+}
+.skill-head{
+  width:100%;display:grid;grid-template-columns:44px 1fr 28px;
+  gap:1rem;align-items:start;padding:1.2rem 1.3rem;text-align:left;
+  min-height:44px;
+}
+.skill-head .dot{
+  width:42px;height:42px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:13px;color:#fff;flex-shrink:0;
+}
+.skill[data-tone="pink"] .dot{background:var(--pink-ink)}
+.skill[data-tone="mint"] .dot{background:var(--mint-ink)}
+.skill[data-tone="lav"] .dot{background:var(--lav-ink)}
+.skill-head h3{font-size:1.05rem;font-weight:700;margin-bottom:.28rem;letter-spacing:-.2px}
+.skill-head p{font-size:14px;color:var(--mute)}
+.skill-head .chev{
+  margin-top:10px;color:var(--mute);transition:transform .2s;
+  font-size:14px;line-height:1;
+}
+.skill.open .chev{transform:rotate(180deg)}
+.skill-body{
+  display:none;padding:0 1.3rem 1.25rem 4.1rem;
+  border-top:1px solid var(--line);
+}
+.skill.open .skill-body{display:block;padding-top:1.05rem}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.panels h4{font-size:12px;font-weight:700;margin-bottom:6px;color:var(--mute)}
+.panels ul{list-style:none;font-size:14px;line-height:1.75}
+.panels ul li{position:relative;padding-left:12px}
+.panels ul li::before{
+  content:"";position:absolute;left:0;top:.72em;
+  width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.55;
+}
+.flow{display:flex;flex-wrap:wrap;gap:6px}
+.flow span{
+  font-size:12px;font-weight:500;padding:5px 10px;border-radius:999px;
+  background:var(--bg-2);border:1px solid var(--line);color:var(--mute);
+}
+
+/* Articles */
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.art{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:1.2rem 1.25rem;
+  box-shadow:var(--soft-shadow);
+  display:flex;flex-direction:column;gap:.75rem;min-height:148px;
+  transition:transform .18s ease;
+}
+.art:hover{transform:translateY(-2px)}
+.art .mark{
+  width:10px;height:10px;border-radius:4px;background:var(--accent);opacity:.7;
+}
+.art:nth-child(1) .mark{background:var(--pink-ink)}
+.art:nth-child(2) .mark{background:var(--mint-ink)}
+.art:nth-child(3) .mark{background:var(--lav-ink)}
+.art h3{font-size:15px;font-weight:700;line-height:1.4;flex:1}
+.art .lock{
+  font-size:12px;font-weight:600;color:var(--mute);
+  align-self:flex-start;background:var(--bg-2);
+  padding:4px 10px;border-radius:999px;border:1px solid var(--line);
+}
+
+/* Experience */
+.exp{display:flex;flex-direction:column;gap:12px}
+.exp article{
+  display:grid;grid-template-columns:10px 1fr;gap:1rem;
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:1.25rem 1.3rem;
+  box-shadow:var(--soft-shadow);
+  transition:transform .18s ease;
+}
+.exp article:hover{transform:translateY(-1px)}
+.exp .bar{border-radius:999px;min-height:100%}
+.exp article:nth-child(1) .bar{background:var(--pink)}
+.exp article:nth-child(2) .bar{background:var(--lav)}
+.exp article:nth-child(3) .bar{background:var(--mint)}
+.exp article:nth-child(4) .bar{background:linear-gradient(180deg,var(--cream),var(--lav))}
+.exp .when{font-size:12px;font-weight:600;color:var(--mute);margin-bottom:4px}
+.exp h3{font-size:1.02rem;font-weight:700;margin-bottom:2px;letter-spacing:-.15px}
+.exp .co{font-size:14px;color:var(--mute);margin-bottom:.55rem}
+.exp .blurb{
+  font-size:14.5px;font-weight:500;color:var(--ink);
+  line-height:1.55;margin:.65rem 0 .55rem;max-width:68ch;
+}
+.exp .exp-points{
+  margin:0;padding:0;list-style:none;
+  display:flex;flex-direction:column;gap:7px;
+  max-width:72ch;
+}
+.exp .exp-points li{
+  position:relative;padding-left:14px;
+  font-size:13.5px;line-height:1.55;color:var(--mute);font-weight:500;
+}
+.exp .exp-points li::before{
+  content:"";position:absolute;left:0;top:.55em;
+  width:6px;height:6px;border-radius:50%;background:var(--lav-ink);opacity:.55;
+}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{
+  font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;
+  background:var(--bg-2);border:1px solid var(--line);color:var(--mute);
+}
+
+/* Footer */
+footer{padding:2.75rem 0 3.25rem;margin-top:.5rem}
+footer .box{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:1.75rem 1.85rem;
+  box-shadow:var(--soft-shadow);
+}
+footer .cta-title{
+  font-size:clamp(1.45rem,2.6vw,1.85rem);font-weight:800;letter-spacing:-.55px;
+  line-height:1.25;margin-bottom:1rem;color:var(--ink);
+}
+footer .cta-row{
+  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;
+  font-size:14px;font-weight:600;color:var(--mute);line-height:1.5;
+}
+footer .cta-row a{
+  color:var(--ink);font-weight:700;text-decoration:none;
+  border-bottom:2px solid var(--pink);padding-bottom:1px;
+}
+footer .cta-row a:hover{opacity:.85}
+footer .cta-row .sep{color:var(--line);font-weight:400;user-select:none}
+footer .cta-row .pill{
+  display:inline-flex;align-items:center;
+  padding:5px 12px;border-radius:999px;font-size:13px;font-weight:700;
+  background:linear-gradient(165deg,#F3EEFF,#fff);
+  border:1px solid rgba(79,63,138,.16);color:var(--lav-ink);
+}
+
+
+/* Project media image cover */
+.card .media.has-img{
+  padding:0;align-items:stretch;justify-content:stretch;
+  background:#0B1020;
+}
+.card .media.has-img img{
+  width:100%;height:100%;object-fit:contain;object-position:center;
+  background:#0B1020;
+}
+.card.wide .media.has-img img{object-fit:cover;object-position:left center}
+.card.wide .media.has-img.poster-tall{
+  aspect-ratio:4/5;min-height:280px;background:#111;
+}
+.card.wide .media.has-img.poster-tall img{
+  object-fit:contain;object-position:center top;
+}
+.card .media.has-img.m1 img{object-fit:contain;object-position:center}
+.card .media.has-img .media-badge{
+  position:absolute;left:14px;bottom:14px;z-index:1;
+  font-size:12px;font-weight:600;color:rgba(28,31,38,.7);
+  background:rgba(255,255,255,.88);backdrop-filter:blur(6px);
+  padding:5px 10px;border-radius:999px;border:1px solid rgba(28,31,38,.06);
+}
+.card .links{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
+.card .link.muted,.card .link-muted{
+  font-size:12px;font-weight:600;color:var(--mute);
+  text-decoration:none;cursor:default;
+  background:var(--bg-2);border:1px solid var(--line);
+  padding:4px 10px;border-radius:999px;align-self:flex-start;
+}
+.proj-sub{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.proj-sub .card{opacity:.96}
+.proj-sub .card .media{aspect-ratio:16/10;min-height:0}
+.proj-sub .card h3{font-size:1rem}
+.proj-sub .card p{font-size:13px}
+
+/* Featured experience */
+.feat{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--soft-shadow);
+  padding:1.4rem 1.45rem 1.35rem;
+  display:grid;
+  grid-template-columns:10px 1fr;
+  gap:1.1rem;
+  margin-bottom:12px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .18s ease;
+}
+.feat:hover{transform:translateY(-1px)}
+.feat::after{
+  content:"";
+  position:absolute;right:-48px;top:-60px;width:200px;height:200px;
+  border-radius:45% 55% 50% 50%;
+  background:radial-gradient(circle at 35% 35%, rgba(240,200,212,.5), rgba(212,204,240,.22) 58%, transparent 72%);
+  pointer-events:none;
+}
+.feat .bar{border-radius:999px;min-height:100%}
+
+.feat-preview{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+  margin:0 0 1rem;
+}
+.feat-preview a{
+  display:block;border-radius:12px;overflow:hidden;
+  border:1px solid var(--line);background:var(--bg-2);
+  aspect-ratio:16/10;transition:transform .15s ease,box-shadow .15s ease;
+}
+.feat-preview a:hover{transform:translateY(-1px);box-shadow:var(--soft-shadow)}
+.feat-preview img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:720px){
+  .feat-preview{grid-template-columns:repeat(3,1fr)}
+}
+.feat.msa .bar{background:linear-gradient(180deg,var(--pink),var(--lav))}
+.feat.lofter .bar{background:linear-gradient(180deg,var(--mint),var(--lav))}
+.feat-body{position:relative;z-index:1;min-width:0}
+.feat-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:.5rem}
+.feat-role{
+  font-size:12px;font-weight:700;color:#fff;
+  padding:4px 11px;border-radius:999px;
+}
+.feat.msa .feat-role{background:var(--pink-ink)}
+.feat.lofter .feat-role{background:var(--mint-ink)}
+.feat-when{font-size:12px;font-weight:600;color:var(--mute)}
+.feat h3{
+  font-size:clamp(1.35rem,2.6vw,1.7rem);
+  font-weight:800;letter-spacing:-.5px;line-height:1.25;
+  margin-bottom:.3rem;
+}
+.feat .co{font-size:15px;color:var(--mute);margin-bottom:.85rem;font-weight:600}
+.feat .bg{font-size:15px;color:var(--mute);max-width:68ch;margin-bottom:1rem;line-height:1.65;font-weight:500}
+.feat .intro{
+  display:grid;grid-template-columns:1.1fr 1fr;gap:10px;
+  margin:0 0 1.05rem;
+}
+.feat .intro .block{
+  border-radius:16px;border:1px solid var(--line);
+  padding:.85rem 1rem .9rem;
+  background:linear-gradient(165deg,#FBF9FF,var(--bg-2));
+}
+.feat.msa .intro .block.feat-tone{background:linear-gradient(165deg,#FBE8EE,rgba(240,200,212,.55))}
+.feat.lofter .intro .block.feat-tone{background:linear-gradient(165deg,#E8F7F1,rgba(191,229,214,.55))}
+.feat .intro .k{
+  font-size:12px;font-weight:800;color:var(--lav-ink);
+  margin-bottom:.4rem;display:inline-flex;align-items:center;gap:6px;
+}
+.feat .intro .k::before{
+  content:"";width:6px;height:6px;border-radius:50%;background:var(--lav-ink);
+}
+.feat.msa .intro .block.feat-tone .k{color:var(--pink-ink)}
+.feat.msa .intro .block.feat-tone .k::before{background:var(--pink-ink)}
+.feat.lofter .intro .block.feat-tone .k{color:var(--mint-ink)}
+.feat.lofter .intro .block.feat-tone .k::before{background:var(--mint-ink)}
+.feat .intro .block p{
+  font-size:14px;color:var(--ink);line-height:1.6;margin:0;font-weight:500;
+}
+@media (max-width:720px){
+  .feat .intro{grid-template-columns:1fr}
+}
+.feat .method{
+  margin:0 0 1rem;
+  border-radius:var(--radius-sm);
+  border:1px solid rgba(79,63,138,.18);
+  background:linear-gradient(165deg,#FBF9FF,var(--bg-2));
+  padding:.95rem 1.05rem 1rem;
+}
+.feat .method .label{
+  font-size:12px;font-weight:700;color:var(--lav-ink);
+  margin-bottom:.5rem;display:inline-flex;align-items:center;gap:6px;
+}
+.feat .method .label i{
+  width:7px;height:7px;border-radius:50%;background:var(--lav-ink);
+  box-shadow:0 0 0 3px rgba(79,63,138,.16);display:inline-block;
+}
+.feat .method ol{list-style:none;display:flex;flex-direction:column;gap:7px;margin:0 0 .85rem}
+.feat .method ol li{
+  display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start;
+  font-size:13px;color:var(--mute);line-height:1.5;
+}
+.feat .method ol li b{
+  width:20px;height:20px;border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;color:#fff;background:var(--accent);margin-top:1px;
+}
+.feat .method ol li span strong{color:var(--ink);font-weight:700}
+.metrics{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1rem;
+}
+.metrics.four{grid-template-columns:repeat(4,1fr)}
+.metric{
+  border-radius:var(--radius-sm);border:1px solid var(--line);
+  padding:.85rem .95rem .8rem;min-height:78px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow:0 8px 22px -16px rgba(28,31,38,.22);
+}
+.metric.pink{background:linear-gradient(165deg,#FBE8EE,var(--pink))}
+.metric.mint{background:linear-gradient(165deg,#E8F7F1,var(--mint))}
+.metric.lav{background:linear-gradient(165deg,#EEEAF8,var(--lav))}
+.metric.cream{background:linear-gradient(165deg,#FFF8F0,#F5E6D3)}
+.metric .k{font-size:12px;font-weight:600;color:var(--mute)}
+.metric .v{font-size:1.2rem;font-weight:800;letter-spacing:-.4px;line-height:1.2;margin-top:.25rem}
+.metric.pink .v{color:var(--pink-ink)}
+.metric.mint .v{color:var(--mint-ink)}
+.metric.lav .v{color:var(--lav-ink)}
+.metric.cream .v{color:#8A5A2B}
+.metric .s{font-size:12px;color:var(--mute);margin-top:.25rem;font-weight:500}
+.feat-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.feat-actions a.cta-sm{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;font-weight:700;
+  padding:8px 14px;border-radius:999px;
+  background:var(--accent);color:#fff;
+  box-shadow:var(--soft-shadow);
+  transition:background .15s,transform .15s;
+}
+.feat-actions a.cta-sm:hover{background:#3f3270;transform:translateY(-1px)}
+.feat-actions a.ghost-sm{
+  font-size:13px;font-weight:700;color:var(--lav-ink);
+  padding:7px 12px;border-radius:999px;
+  background:#fff;border:1px solid var(--line);
+}
+.feat-actions a.ghost-sm:hover{background:var(--bg-2)}
+.exp-label{
+  font-size:13px;font-weight:600;color:var(--mute);
+  margin:1.15rem 0 .2rem;
+}
+
+/* Skills primary entry */
+.skill.primary{
+  border:1px solid rgba(79,63,138,.18);
+  background:linear-gradient(165deg,#FBF9FF,#fff);
+}
+.skill.primary .skill-head{cursor:default}
+.skill .skill-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:.65rem;
+  font-size:13px;font-weight:700;color:var(--accent);
+  text-decoration:underline;text-underline-offset:3px;
+}
+.skill .skill-cta:hover{opacity:.85}
+.skill.secondary{opacity:.94}
+.skill.secondary .skill-head p{font-size:13px}
+
+/* Articles categories */
+.arts-wrap{display:flex;flex-direction:column;gap:1.15rem}
+.arts-group .arts-cat{
+  font-size:13px;font-weight:700;color:var(--mute);
+  margin-bottom:.55rem;letter-spacing:-.1px;
+}
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.art .cat{
+  font-size:11px;font-weight:700;color:var(--lav-ink);
+  background:rgba(212,204,240,.45);
+  padding:3px 9px;border-radius:999px;align-self:flex-start;
+}
+.art a.go{
+  font-size:13px;font-weight:700;color:var(--accent);
+  text-decoration:underline;text-underline-offset:3px;
+  align-self:flex-start;
+}
+.art a.go:hover{opacity:.85}
+.art .lock{align-self:flex-start}
+.art:nth-child(n) .mark{background:var(--accent);opacity:.55}
+.arts-group[data-cat="academic"] .mark{background:var(--pink-ink)}
+.arts-group[data-cat="personal"] .mark{background:var(--mint-ink)}
+.arts-group[data-cat="media"] .mark{background:var(--lav-ink)}
+.arts-group[data-cat="locked"] .mark{background:var(--mute);opacity:.35}
+.arts-more{
+  margin:.15rem 0 0;padding:.85rem 1.1rem;
+  border-radius:14px;border:1px dashed rgba(79,63,138,.22);
+  background:rgba(255,255,255,.55);
+  font-size:14px;font-weight:600;color:var(--mute);line-height:1.5;
+}
+
+/* Tweaks — hidden unless ?tweaks */
+.tweaks-fab,.tweaks-panel{display:none}
+html.tweaks-on .tweaks-fab{
+  display:flex;align-items:center;justify-content:center;
+  position:fixed;right:18px;bottom:18px;z-index:90;
+  width:48px;height:48px;border-radius:16px;
+  background:var(--ink);color:#fff;font-size:13px;font-weight:700;
+  box-shadow:0 12px 28px -10px rgba(20,22,28,.45);
+}
+html.tweaks-on .tweaks-panel{
+  display:none;
+  position:fixed;right:18px;bottom:78px;z-index:90;
+  width:min(280px, calc(100vw - 36px));
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 18px 48px -16px rgba(20,22,28,.35);
+  padding:16px 16px 14px;
+}
+html.tweaks-on .tweaks-panel.open{display:block}
+.tweaks-panel .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.tweaks-panel .head strong{font-size:13px}
+.tweaks-panel label{display:block;margin-bottom:12px;font-size:12px;color:var(--mute)}
+.tweaks-panel input[type="color"]{width:100%;height:34px;border:none;background:none;padding:0;cursor:pointer}
+.tweaks-panel input[type="range"]{width:100%}
+.tweaks-panel .row{display:flex;gap:8px}
+.tweaks-panel .btn{
+  flex:1;padding:8px 10px;border-radius:10px;font-size:12px;font-weight:600;
+  background:var(--bg-2);border:1px solid var(--line);color:var(--ink);
+}
+.tweaks-panel .btn:hover{background:#fff}
+
+
+/* About */
+.about-grid{
+  display:grid;
+  grid-template-columns:minmax(180px,.85fr) 1.15fr 1.15fr;
+  gap:14px;
+  align-items:stretch;
+}
+.about-photo{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--soft-shadow);
+  overflow:hidden;
+  padding:0;
+  min-height:260px;
+  height:100%;
+  margin:0;
+  position:relative;
+}
+.about-photo img{
+  position:absolute;inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 18%;
+  display:block;
+}
+.about-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--soft-shadow);
+  padding:1.35rem 1.4rem 1.3rem;
+  display:flex;
+  flex-direction:column;
+  gap:.85rem;
+  position:relative;
+  overflow:hidden;
+  min-height:260px;
+}
+.about-card::after{
+  content:"";
+  position:absolute;right:-40px;top:-50px;width:160px;height:160px;
+  border-radius:45% 55% 50% 50%;
+  background:radial-gradient(circle at 35% 35%, rgba(240,200,212,.42), rgba(212,204,240,.18) 58%, transparent 72%);
+  pointer-events:none;
+}
+.about-card > *{position:relative;z-index:1}
+.about-card.mint-tint{background:linear-gradient(165deg,#fff 40%,rgba(191,229,214,.28))}
+.about-card.lav-tint{background:linear-gradient(165deg,#fff 40%,rgba(212,204,240,.32))}
+.about-card .k{
+  font-size:12px;font-weight:700;color:var(--mute);
+  letter-spacing:.02em;
+}
+.about-card h3{
+  font-size:1.08rem;font-weight:700;letter-spacing:-.25px;
+}
+.about-card ul{
+  list-style:none;display:flex;flex-direction:column;gap:.65rem;
+  margin-top:auto;
+}
+.about-card li{
+  font-size:14px;color:var(--mute);line-height:1.55;
+  position:relative;padding-left:14px;
+}
+.about-card li::before{
+  content:"";position:absolute;left:0;top:.72em;
+  width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.55;
+}
+.about-card.mint-tint li::before{background:var(--mint-ink)}
+.about-card.lav-tint li::before{background:var(--lav-ink)}
+.sec-head .eyebrow-inline{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;color:#fff;
+  background:var(--pink-ink);padding:5px 12px;border-radius:999px;
+  margin-bottom:.55rem;
+}
+.sec-head .eyebrow-inline i{
+  width:6px;height:6px;border-radius:50%;background:#fff;opacity:.85;display:inline-block;
+}
+
+/* Mini Snake — soft Bento play cell */
+.snake-card{
+  margin-top:14px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  box-shadow:var(--soft-shadow);
+  padding:1rem 1.15rem 1.05rem;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:12px 18px;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+.snake-card::after{
+  content:"";
+  position:absolute;right:-40px;top:-50px;width:160px;height:160px;
+  border-radius:45% 55% 50% 50%;
+  background:radial-gradient(circle at 35% 35%, rgba(240,200,212,.45), rgba(212,204,240,.2) 58%, transparent 72%);
+  pointer-events:none;
+}
+.snake-meta{position:relative;z-index:1;min-width:0}
+.snake-meta .snake-k{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:800;letter-spacing:.02em;
+  color:var(--lav-ink);margin-bottom:.35rem;
+}
+.snake-meta .snake-k i{
+  width:6px;height:6px;border-radius:50%;background:var(--pink-ink);opacity:.75;
+}
+.snake-meta h3{
+  font-size:1.05rem;font-weight:800;letter-spacing:-.25px;line-height:1.3;
+  margin-bottom:.25rem;
+}
+.snake-meta p{
+  font-size:13px;color:var(--mute);font-weight:500;line-height:1.5;
+  max-width:42ch;margin-bottom:.7rem;
+}
+.snake-bar{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;
+}
+.snake-score{
+  font-size:13px;font-weight:700;color:var(--ink);
+  background:linear-gradient(165deg,#FBF9FF,var(--bg-2));
+  border:1px solid var(--line);border-radius:999px;
+  padding:5px 12px;
+}
+.snake-score b{color:var(--lav-ink);font-variant-numeric:tabular-nums}
+.snake-btn{
+  font-size:12px;font-weight:700;color:var(--ink);
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:6px 12px;cursor:pointer;
+  box-shadow:var(--soft-shadow);
+}
+.snake-btn:hover{background:var(--bg-2)}
+.snake-btn:focus-visible{outline:2px solid var(--lav-ink);outline-offset:2px}
+.snake-hint{font-size:11px;font-weight:600;color:var(--mute)}
+.snake-play{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.snake-play canvas{
+  width:200px;height:200px;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:linear-gradient(165deg,#FBF9FF,#F3EEFF);
+  touch-action:none;
+  display:block;
+}
+.snake-pad{
+  display:grid;grid-template-columns:repeat(3,36px);grid-template-rows:repeat(3,32px);
+  gap:4px;justify-content:center;
+}
+.snake-pad button{
+  border:1px solid var(--line);border-radius:10px;
+  background:#fff;color:var(--mute);font-size:14px;font-weight:700;
+  cursor:pointer;line-height:1;
+}
+.snake-pad button:active{background:var(--bg-2)}
+.snake-pad .u{grid-column:2;grid-row:1}
+.snake-pad .l{grid-column:1;grid-row:2}
+.snake-pad .d{grid-column:2;grid-row:2}
+.snake-pad .r{grid-column:3;grid-row:2}
+.snake-overlay{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.72);backdrop-filter:blur(4px);
+  border-radius:16px;font-size:13px;font-weight:800;color:var(--lav-ink);
+  pointer-events:none;text-align:center;padding:12px;line-height:1.4;
+}
+.snake-play{position:relative}
+.snake-play.is-over .snake-overlay{display:flex}
+@media (max-width:720px){
+  .snake-card{grid-template-columns:1fr}
+  .snake-play{justify-self:center}
+}
+.tools-cats{
+  margin-top:14px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  box-shadow:var(--soft-shadow);padding:1.05rem 1.2rem 1.1rem;
+}
+.tools-cats-head{display:flex;align-items:baseline;gap:10px;margin-bottom:.85rem;flex-wrap:wrap}
+.tools-k{font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.1px}
+.tools-sub{font-size:12px;font-weight:600;color:var(--mute)}
+.tools-cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tools-cat{
+  border:1px solid var(--line);border-radius:14px;padding:.85rem .9rem .9rem;
+  background:linear-gradient(180deg,#FFFcf7,var(--bg-2));
+}
+.tools-cat h4{font-size:13px;font-weight:800;margin:0 0 .55rem;color:var(--ink)}
+.tools-cat[data-tone="lav"] h4{color:var(--lav-ink)}
+.tools-cat[data-tone="mint"] h4{color:var(--mint-ink)}
+.tools-cat[data-tone="pink"] h4{color:var(--pink-ink)}
+.tools-tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tools-tags span{
+  font-size:12px;font-weight:600;color:var(--mute);
+  padding:4px 10px;border-radius:999px;
+  background:#fff;border:1px solid var(--line);
+}
+.tools-more{
+  margin:.85rem 0 0;font-size:12px;color:var(--mute);line-height:1.5;
+}
+.skills-lang{
+  margin-top:10px;
+  background:transparent;border:1px dashed var(--line);border-radius:var(--radius-sm);
+  box-shadow:none;padding:.85rem 1.05rem .9rem;
+}
+.skills-lang.is-secondary{opacity:.92}
+.skills-lang-k{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);
+  margin-bottom:.65rem;
+}
+.skills-lang-k i{width:7px;height:7px;border-radius:3px;background:var(--mute);opacity:.55;display:inline-block}
+.skills-lang-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+}
+.skills-lang-grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.skills-lang-grid h4{font-size:12.5px;font-weight:800;margin:0 0 .3rem;color:var(--ink)}
+.skills-lang-grid p{font-size:12.5px;line-height:1.5;color:var(--mute);margin:0}
+@media (max-width:820px){
+  .tools-cats-grid{grid-template-columns:1fr}
+  .skills-lang-grid,.skills-lang-grid.cols-2{grid-template-columns:1fr}
+}
+
+.about-head{flex-direction:column;align-items:flex-start;gap:.35rem}
+.about-head h2{margin:0}
+.about-head p{max-width:48ch;font-size:15px;color:var(--ink);font-weight:500}
+.nav-scroll-wrap{display:none}
+.nav-scroll{
+  display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  padding:0 0 10px;scrollbar-width:none;
+}
+.nav-scroll::-webkit-scrollbar{display:none}
+.nav-scroll a{
+  flex:0 0 auto;
+  font-size:13px;font-weight:700;color:var(--ink);
+  padding:7px 12px;border-radius:999px;
+  background:#fff;border:1px solid var(--line);
+  white-space:nowrap;text-decoration:none;
+}
+.nav-scroll a:hover{background:var(--bg-2)}
+@media (max-width:900px){
+  .bento,.proj,.arts,.proj-sub,.about-grid{grid-template-columns:1fr}
+  .about-photo img{min-height:320px;aspect-ratio:1/1;max-height:420px}
+  .tile.hero-main{grid-row:auto;min-height:0}
+  .tile.span2{grid-column:auto}
+  .proj .wide{grid-row:auto}
+  .metrics,.metrics.four{grid-template-columns:1fr 1fr}
+  .skill-body{padding-left:1.3rem}
+  .nav-links{display:none}
+  .nav-scroll-wrap{display:block;border-bottom:1px solid var(--line);background:rgba(247,245,252,.92);backdrop-filter:blur(10px)}
+  .nav-inner{height:56px}
+}
+@media (max-width:560px){
+  .metrics,.metrics.four{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .wrap{width:min(100% - 1.5rem, 1120px)}
+  .hero{padding:2rem 0 1rem}
+  .sec{padding:2rem 0}
+  .tile.hero-main{padding:1.4rem}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">盖之怿<span class="pill">市场传播 X AI Native</span></a>
+    <ul class="nav-links">
+      <li><a href="#top">首页</a></li>
+      <li><a href="#about">关于</a></li>
+      <li><a href="#projects">产品</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#articles">文章</a></li>
+      <li><a href="#experience">经历</a></li>
+    </ul>
+  </div>
+  <div class="nav-scroll-wrap" aria-label="章节导航">
+    <div class="wrap">
+      <nav class="nav-scroll">
+        <a href="#top">首页</a>
+        <a href="#about">关于</a>
+        <a href="#projects">产品</a>
+        <a href="#skills">Skills</a>
+        <a href="#articles">文章</a>
+        <a href="#experience">经历</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top" aria-label="首页">
+    <div class="wrap">
+      <div class="bento">
+        <div class="tile hero-main">
+          <div>
+            <span class="hero-eyebrow"><i></i>作品集</span>
+            <h1>Make Things <em>happen.</em></h1>
+            <p class="who"><strong>盖之怿</strong><span class="who-role">市场传播 X AI Native</span></p>
+            <p class="fields">实践领域：政企 AI 培训 / 内容与整合营销 / AI 产品与前端实验</p>
+          </div>
+          <a class="cta" href="#projects">查看作品</a>
+        </div>
+        <a class="tile pink has-bubble" href="design-demos/product-resume-hunter.html">
+          <div class="tile-copy">
+            <div class="k">给招聘同学用的小工具</div>
+            <div class="v">天下无鸽入库助手</div>
+            <div class="mini">邮箱里的简历通知 → 飞书人才库，不用手录</div>
+          </div>
+          <span class="tile-bubble" role="tooltip">
+            <img src="assets/resume-hunter/poster-lovart-zh-fixed.png" alt="入库助手产品海报预览" width="800" height="1000" loading="lazy" />
+          </span>
+        </a>
+        <a class="tile mint has-bubble" href="design-demos/exp-msa-ai-training.html">
+          <div class="tile-copy">
+            <div class="k">经历</div>
+            <div class="v">市监局 AI 培训</div>
+            <div class="mini">真实工作先行 · 换地方也能用的课骨架</div>
+          </div>
+          <span class="tile-bubble" role="tooltip">
+            <img src="assets/msa/cover-method-kpi.png" alt="市监局培训示意" width="2000" height="960" loading="lazy" />
+          </span>
+        </a>
+        <a class="tile lav span2 has-bubble" href="design-demos/exp-lofter-cpsp.html">
+          <div class="tile-copy">
+            <div class="k">经历 · 案例</div>
+            <div class="v">LOFTER×CPSP 整合营销</div>
+            <div class="mini">网易 LOFTER 实习主推案例</div>
+          </div>
+          <span class="tile-bubble" role="tooltip">
+            <img src="assets/lofter/inapp-row.png" alt="LOFTER 活动界面预览" width="1617" height="312" loading="lazy" />
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec" id="about" aria-label="关于">
+    <div class="wrap">
+      <div class="sec-head about-head">
+        <span class="eyebrow-inline"><i></i>关于 · 盖之怿</span>
+        <h2>内容、活动与 AI，喜欢把事做成</h2>
+      </div>
+      <div class="about-grid">
+        <figure class="about-photo">
+          <img src="assets/portrait.png" alt="盖之怿" width="1024" height="1024" loading="lazy" />
+        </figure>
+        <article class="about-card mint-tint" aria-label="学历与公共项目">
+          <h3>学历与公共项目</h3>
+          <ul>
+            <li>香港中文大学硕士，自考雅思 7.0</li>
+            <li>深当代／港中文物馆策展助理：三场展览做过文本、布展与现场运维</li>
+            <li>和阿里公益一起，筹办过二十多场大型活动</li>
+          </ul>
+        </article>
+        <article class="about-card lav-tint" aria-label="实习与 AI 实践">
+          <h3>实习与 AI 实践</h3>
+          <ul>
+            <li>网易 LOFTER 整合营销实习：从脑暴、KOL brief 到线下执行都跑过</li>
+            <li>圈层文化怎么接到商业化，完整走过一回</li>
+            <li>日常大量用 Claude Code、Codex、Grok Bot 做 vibe coding，解决真实生产问题</li>
+          </ul>
+        </article>
+      </div>
+      <div class="tools-cats" aria-label="常用工具">
+        <div class="tools-cats-head">
+          <span class="tools-k">常用工具</span>
+          <span class="tools-sub">按工作类型看</span>
+        </div>
+        <div class="tools-cats-grid">
+          <div class="tools-cat" data-tone="lav">
+            <h4>AI 类</h4>
+            <div class="tools-tags">
+              <span>GPT</span><span>Claude</span><span>Grok</span><span>Bot</span>
+            </div>
+          </div>
+          <div class="tools-cat" data-tone="mint">
+            <h4>视频剪辑类</h4>
+            <div class="tools-tags">
+              <span>剪映</span><span>Final Cut</span><span>达芬奇</span>
+            </div>
+          </div>
+          <div class="tools-cat" data-tone="pink">
+            <h4>项目管理类</h4>
+            <div class="tools-tags">
+              <span>Sketch</span><span>墨刀</span><span>Slack</span><span>Notion</span>
+            </div>
+          </div>
+        </div>
+        <p class="tools-more" role="note">另有制图与排版、预算与借展工具，见下方摘要。</p>
+      </div>
+
+      <div class="skills-lang is-secondary" aria-label="技能与语言">
+        <div class="skills-lang-k"><i></i>技能与语言 · 次要</div>
+        <div class="skills-lang-grid cols-2">
+          <div>
+            <h4>制图与排版</h4>
+            <p>SketchUp · AutoCAD · Rhino · Enscape · InDesign · Photoshop</p>
+          </div>
+          <div>
+            <h4>预算与借展</h4>
+            <p>Excel 预算与比价表 · 广联达 GDQ · TMS／PastPerfect</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="snake-card" id="snake-card" aria-label="放松一下：贪吃蛇">
+        <div class="snake-meta">
+          <div class="snake-k"><i></i>放松一下</div>
+          <h3>玩玩贪吃蛇</h3>
+          <p>作品翻累了就点一下。方向键或 WASD；手机可点下方方向，也可在棋盘上滑动。</p>
+          <div class="snake-bar">
+            <span class="snake-score">分数 <b id="snakeScore">0</b></span>
+            <button type="button" class="snake-btn" id="snakeRestart">重新开始</button>
+            <span class="snake-hint" id="snakeHint">点棋盘或按键开始</span>
+          </div>
+        </div>
+        <div class="snake-play" id="snakePlay">
+          <canvas id="snakeCanvas" width="200" height="200" aria-label="贪吃蛇棋盘"></canvas>
+          <div class="snake-overlay" id="snakeOverlay" aria-hidden="true">撞到了<br>按重新开始</div>
+          <div class="snake-pad" aria-label="触控方向">
+            <button type="button" class="u" data-dir="up" aria-label="上">↑</button>
+            <button type="button" class="l" data-dir="left" aria-label="左">←</button>
+            <button type="button" class="d" data-dir="down" aria-label="下">↓</button>
+            <button type="button" class="r" data-dir="right" aria-label="右">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>产品</h2>
+        <p>每条先讲背景与功能，再看海报和界面。</p>
+      </div>
+      <div class="proj">
+        <article class="card wide" aria-label="天下无鸽入库助手">
+          <div class="body">
+            <div class="tag-row"><span class="tag">邮箱 / 本地文件夹</span><span class="tag">飞书招聘人才库</span><span class="tag">自动选岗</span></div>
+            <h3>天下无鸽入库助手</h3>
+            <div class="intro">
+              <div class="block">
+                <div class="k">背景</div>
+                <p>校招季跟 HR 聊下来：Boss 等平台的简历通知要手下、手传、手录进飞书，漏人又费时。需要一个本地小工具，聊天时就能把简历变成人才库记录。</p>
+              </div>
+              <div class="block feat-tone">
+                <div class="k">功能</div>
+                <p>扫邮箱 / 本地文件夹 → 解析写入飞书 → 按历史映射自动选岗 → 心跳窗与有声提醒。海报讲清价值与四步；心跳窗与报表作辅证。</p>
+              </div>
+            </div>
+            <div class="links">
+              <a class="link" href="design-demos/product-resume-hunter.html">查看详情</a>
+              <a class="link" href="https://github.com/GAI810/Gai/tree/main/resume-hunter" target="_blank" rel="noopener">源码 · GitHub</a>
+            </div>
+          </div>
+          <div class="media has-img m2 poster-tall" role="img" aria-label="天下无鸽入库助手产品介绍海报">
+            <img src="assets/resume-hunter/poster-lovart-zh-fixed.png" alt="天下无鸽入库助手：产品介绍海报（价值主张与流程）" width="1600" height="2000" loading="lazy" />
+            <span class="media-badge">产品介绍海报</span>
+          </div>
+          <div class="media-shots" aria-label="功能界面缩略">
+            <figure>
+              <a class="shot-zoom" href="assets/resume-hunter/shot-menubar-hud.png" target="_blank" rel="noopener" title="查看大图">
+                <img src="assets/resume-hunter/shot-menubar-hud.png" alt="桌面悬浮窗：心跳与今日入库" width="480" height="160" loading="lazy" />
+              </a>
+              <figcaption>功能 · 桌面心跳窗，入库有声提醒 · 点击放大</figcaption>
+            </figure>
+            <figure>
+              <a class="shot-zoom" href="assets/resume-hunter/shot-status-dashboard.png" target="_blank" rel="noopener" title="查看大图">
+                <img src="assets/resume-hunter/shot-status-dashboard.png" alt="定期入库报表后台（脱敏，作辅证）" width="640" height="360" loading="lazy" />
+              </a>
+              <figcaption>辅证 · 后台报表 · 点击放大</figcaption>
+            </figure>
+          </div>
+        </article>
+        <article class="card" aria-label="戴森球 Dashboard">
+          <div class="body">
+            <h3>戴森球 Dashboard</h3>
+            <div class="intro">
+              <div class="block">
+                <div class="k">背景</div>
+                <p>2025.11 Gemini 新模型窗口，外网在比「谁更会写前端」。用同一段提示词让几家模型生成戴森球监控页，看交互与视觉谁更完整。</p>
+              </div>
+              <div class="block feat-tone">
+                <div class="k">功能</div>
+                <p>可交互 Three.js 监控台：拖拽旋转、滚轮缩放、自动环绕；侧栏指标与科幻 HUD。站内可玩，源码在 GitHub。</p>
+              </div>
+            </div>
+            <div class="links">
+              <a class="link" href="design-demos/product-dyson.html">查看详情</a>
+              <a class="link" href="https://github.com/GAI810/Gai/tree/main/dyson-sphere-dashboard" target="_blank" rel="noopener">源码 · GitHub</a>
+            </div>
+          </div>
+          <div class="media has-img m1" role="img" aria-label="戴森球运作监控预览">
+            <img src="assets/dyson/dyson-poster.png" alt="戴森球运作监控前端预览海报" width="1280" height="720" loading="lazy" />
+            <span class="media-badge">前端实验 · 2025.11</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Skills</h2>
+        <p>可复用方法在前；其余为协作型工具摘要。</p>
+      </div>
+      <div class="skills">
+        <div class="skill primary" data-tone="mint" aria-label="政企 AI 认知课">
+          <div class="skill-head">
+            <div class="dot" aria-hidden="true">政</div>
+            <div>
+              <h3>政企 AI 认知课</h3>
+              <p>课骨架：先讲清真实工作，再导航工具与资料。换主办方时，填进受众、场景、能力和合规红线就行。市监局那次培训能当例子。</p>
+              <a class="skill-cta" href="design-demos/skill-gov-ai-literacy.html">查看课骨架 →</a>
+            </div>
+            <div></div>
+          </div>
+        </div>
+
+        <div class="skill secondary" data-tone="pink">
+          <div class="skill-head">
+            <div class="dot" aria-hidden="true">Ide</div>
+            <div>
+              <h3>Idea to Wireflow</h3>
+              <p>把 PRD、思维导图或一句想法，梳理成研发和设计都能直接协作的线框流程。</p>
+            </div>
+            <div></div>
+          </div>
+        </div>
+
+        <div class="skill secondary" id="sk2" data-tone="mint" data-expandable>
+          <button class="skill-head" type="button" aria-expanded="false" aria-controls="sk2-body" onclick="toggleSkill('sk2')">
+            <div class="dot" aria-hidden="true">Ag</div>
+            <div>
+              <h3>Agent 评测量表生成器</h3>
+              <p>把产品目标和任务描述转化为可复核的评测维度、评分规则与失败类型。</p>
+            </div>
+            <div class="chev" aria-hidden="true">▾</div>
+          </button>
+          <div class="skill-body" id="sk2-body">
+            <div class="panels">
+              <div>
+                <h4>Input</h4>
+                <ul>
+                  <li>用户任务</li>
+                  <li>预期结果</li>
+                  <li>关键约束</li>
+                  <li>风险边界</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Output</h4>
+                <ul>
+                  <li>评测维度</li>
+                  <li>分级锚点</li>
+                  <li>样例与人工复核清单</li>
+                </ul>
+              </div>
+              <div>
+                <h4>四步流程</h4>
+                <div class="flow">
+                  <span>识别硬约束</span>
+                  <span>区分结果 / 过程 / 风险</span>
+                  <span>行为锚点</span>
+                  <span>反例复核</span>
+                </div>
+              </div>
+              <div>
+                <h4>能力边界</h4>
+                <ul>
+                  <li>不能替专家定高风险标准</li>
+                  <li>输出需人工复核后才可落地</li>
+                  <li>不替代领域专家的最终判断</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill secondary" id="sk3" data-tone="lav" data-expandable>
+          <button class="skill-head" type="button" aria-expanded="false" aria-controls="sk3-body" onclick="toggleSkill('sk3')">
+            <div class="dot" aria-hidden="true">In</div>
+            <div>
+              <h3>访谈洞察与报告生成器</h3>
+              <p>将访谈片段整理为可追溯的洞察与结构化报告，同时保留反例与分歧。</p>
+            </div>
+            <div class="chev" aria-hidden="true">▾</div>
+          </button>
+          <div class="skill-body" id="sk3-body">
+            <div class="panels">
+              <div>
+                <h4>Input</h4>
+                <ul>
+                  <li>匿名访谈</li>
+                  <li>研究问题</li>
+                  <li>假设</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Output</h4>
+                <ul>
+                  <li>证据链</li>
+                  <li>主题聚类</li>
+                  <li>待确认洞察</li>
+                  <li>报告初稿</li>
+                </ul>
+              </div>
+              <div>
+                <h4>四步流程</h4>
+                <div class="flow">
+                  <span>切分</span>
+                  <span>编码不自动确认</span>
+                  <span>聚类找矛盾</span>
+                  <span>洞察附正反证据</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="skill secondary skills-lang-card" data-tone="lav" aria-label="技能与语言摘要">
+          <div class="skill-head">
+            <div class="dot" aria-hidden="true">技</div>
+            <div>
+              <h3>技能与语言</h3>
+              <p>制图与排版（SketchUp／CAD／Rhino／Enscape／InDesign／PS）· 预算与借展（Excel／广联达 GDQ／TMS／PastPerfect）。常用工具见关于区三类：AI／视频剪辑／项目管理。</p>
+            </div>
+            <div></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="articles">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>文章</h2>
+        <p>媒体特稿外链；个人写作与学术报告可站内阅读。</p>
+      </div>
+      <div class="arts-wrap">
+        <div class="arts-group" data-cat="media">
+          <h3 class="arts-cat">媒体特稿</h3>
+          <div class="arts">
+            <a class="art" href="https://mp.weixin.qq.com/s/a1nLbCqj2izV96ENKYA63Q" target="_blank" rel="noopener">
+              <span class="mark" aria-hidden="true"></span>
+              <span class="cat">芭莎</span>
+              <h3>独家｜在深圳，重新发现古物与收藏的意义</h3>
+              <span class="go">阅读原文 →</span>
+            </a>
+          </div>
+        </div>
+        <div class="arts-group" data-cat="personal">
+          <h3 class="arts-cat">个人写作</h3>
+          <div class="arts">
+            <a class="art" href="design-demos/article-guankou.html">
+              <span class="mark" aria-hidden="true"></span>
+              <span class="cat">随笔</span>
+              <h3>穿梭于港深之间：我所见的关口众生</h3>
+              <span class="go">站内阅读 →</span>
+            </a>
+          </div>
+        </div>
+        <div class="arts-group" data-cat="academic">
+          <h3 class="arts-cat">学术</h3>
+          <div class="arts">
+            <a class="art" href="design-demos/article-hist5568.html">
+              <span class="mark" aria-hidden="true"></span>
+              <span class="cat">HIST5568</span>
+              <h3>民國經濟發展中行業力量與政府的關係：從抗衡到服從</h3>
+              <span class="go">站内阅读 →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>经历</h2>
+        <p>每条先讲背景与打法，再看指标与详情。</p>
+      </div>
+
+      <article class="feat msa" aria-label="市监局 AI 认知培训">
+        <div class="bar" aria-hidden="true"></div>
+        <div class="feat-body">
+          <div class="feat-top">
+            <span class="feat-role">讲师</span>
+            <span class="feat-when">2026 · 政府侧培训</span>
+          </div>
+          <h3>市监局 AI 认知培训</h3>
+          <p class="co">当地市场监督管理局 · 经港中文导师推荐</p>
+          <div class="intro" aria-label="背景与方法">
+            <div class="block">
+              <div class="k">背景</div>
+              <p>经港中文导师推荐，给当地市监局开 AI 认知课：听众是机关同事，要贴真实办事场景，不能只讲概念或卖课回放。</p>
+            </div>
+            <div class="block feat-tone">
+              <div class="k">方法 / 功能</div>
+              <p>课骨架「先讲清真实工作，再导航工具与资料」：任务→依据→工具→输出→验收；带走入口、可验证做法与最小案例。换主办方也能复用。</p>
+            </div>
+          </div>
+          <div class="method" aria-label="可复用方法摘要">
+            <div class="label"><i></i>方法条 · 可带走的课骨架</div>
+            <ol>
+              <li><b>1</b><span><strong>真实工作先行</strong>——先讲清现场任务，再导航工具与资料</span></li>
+              <li><b>2</b><span>统一路径：<strong>任务 → 依据 → 工具 → 输出 → 验收</strong></span></li>
+              <li><b>3</b><span>听众带走：<strong>入口 + 可验证做法 + 最小案例</strong></span></li>
+            </ol>
+          </div>
+          <div class="metrics" aria-label="培训结果">
+            <div class="metric pink">
+              <div class="k">培训期数</div>
+              <div class="v">3 期</div>
+              <div class="s">理论 → 应用</div>
+            </div>
+            <div class="metric mint">
+              <div class="k">参与人数</div>
+              <div class="v">100+</div>
+              <div class="s">累计学员</div>
+            </div>
+            <div class="metric lav">
+              <div class="k">科级学员</div>
+              <div class="v">5+</div>
+              <div class="s">科长 / 副科级</div>
+            </div>
+          </div>
+          <div class="feat-preview" aria-label="课件预览缩略">
+            <a href="design-demos/exp-msa-ai-training.html" title="查看经历详情">
+              <img src="assets/msa/preview/01-cover.jpg" alt="课件封面预览" loading="lazy" />
+            </a>
+            <a href="design-demos/exp-msa-ai-training.html" title="查看经历详情">
+              <img src="assets/msa/preview/02-four-questions.jpg" alt="四个基本问题预览" loading="lazy" />
+            </a>
+            <a href="design-demos/exp-msa-ai-training.html" title="查看经历详情">
+              <img src="assets/msa/preview/05-hallucination.jpg" alt="幻觉铁律预览" loading="lazy" />
+            </a>
+          </div>
+          <div class="feat-actions">
+            <a class="cta-sm" href="design-demos/exp-msa-ai-training.html">查看经历 →</a>
+            <a class="ghost-sm" href="design-demos/skill-gov-ai-literacy.html">政企 AI 认知课 Skill</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="feat lofter" aria-label="LOFTER × CPSP 整合营销">
+        <div class="bar" aria-hidden="true"></div>
+        <div class="feat-body">
+          <div class="feat-top">
+            <span class="feat-role">核心执行 · 0→1</span>
+            <span class="feat-when">2025.6—2025.10 · 网易 LOFTER 实习 · 上海 CP 展</span>
+          </div>
+          <h3>LOFTER × CPSP 整合营销</h3>
+          <p class="co">线下「K嗑学鉴定中心」沉浸展 × 线上全链路传播</p>
+          <div class="intro" aria-label="背景与功能">
+            <div class="block">
+              <div class="k">背景</div>
+              <p>网易 LOFTER 实习主推：上海 CP 同人展要同时做品牌声量、拉新与唤回。圈层流量在线下，转化要回到站内。</p>
+            </div>
+            <div class="block feat-tone">
+              <div class="k">功能 / 打法</div>
+              <p>线下沉浸展位接住流量，线上预热—话题—站内回流串成全链路；从脑暴、KOL brief 到现场执行都跑过。</p>
+            </div>
+          </div>
+          <div class="metrics four" aria-label="关键成果">
+            <div class="metric pink">
+              <div class="k">站内曝光</div>
+              <div class="v">4600万</div>
+              <div class="s">平台内触达</div>
+            </div>
+            <div class="metric mint">
+              <div class="k">站外曝光</div>
+              <div class="v">50万+</div>
+              <div class="s">外部传播</div>
+            </div>
+            <div class="metric lav">
+              <div class="k">话题互动</div>
+              <div class="v">10000+</div>
+              <div class="s">UGC 与讨论</div>
+            </div>
+            <div class="metric cream">
+              <div class="k">用户增长</div>
+              <div class="v">3000+</div>
+              <div class="s">活动拉新</div>
+            </div>
+          </div>
+          <div class="feat-actions">
+            <a class="cta-sm" href="design-demos/exp-lofter-cpsp.html">查看案例 →</a>
+          </div>
+        </div>
+      </article>
+
+      <p class="exp-label">实习经历</p>
+      <div class="exp">
+        <article>
+          <div class="bar" aria-hidden="true"></div>
+          <div>
+            <div class="when">2026.09 — 至今</div>
+            <h3>策展助理</h3>
+            <p class="co">深圳市当代艺术与城市规划馆</p>
+            <div class="tags">
+              <span>展览文本</span>
+              <span>布展协同</span>
+              <span>现场运维</span>
+              <span>观众服务</span>
+            </div>
+            <p class="blurb">从布展到开幕都盯过，也独立写过展览前言后记。</p>
+            <ul class="exp-points">
+              <li>潘玉良展「以画为面 以魂入线」：独立写前言／后记；展期服务 1000+ 观众</li>
+              <li>布展期对接藏品、物料与施工墙签灯光，协同馆内／施工／志愿 100+，按时开幕</li>
+              <li>现场检票导览巡查，可独立处理问询与应急；归类 150+ 高频问询，TOP3 补导视并改讲解词，复测同类问询明显下降</li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <div class="bar" aria-hidden="true"></div>
+          <div>
+            <div class="when">2026.05 — 2026.08</div>
+            <h3>策展助理</h3>
+            <p class="co">香港中文大学文物馆大使</p>
+            <div class="tags">
+              <span>研究落地</span>
+              <span>导览文案</span>
+              <span>活动统筹</span>
+              <span>展务物资</span>
+            </div>
+            <p class="blurb">乾隆主题研究落到导览文案，也把新生展和物资流跑顺了。</p>
+            <ul class="exp-points">
+              <li>梳理 150+ 文献／实物，提炼叙事章节；落地《石渠宝笈》相关与《感墨铸情》等导言／单元／标签／结语</li>
+              <li>联合书院×文物馆：协调场地档期人力，完成 550 人新生展示活动，分批进出衔接有序</li>
+              <li>展务物资 500+ 件盘点发放登记；按人流设发放点减拥堵，并做日巡与问询反馈</li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <div class="bar" aria-hidden="true"></div>
+          <div>
+            <div class="when">2026.03 — 2026.07</div>
+            <h3>AI 产品经理实习生（AI 情感陪伴）</h3>
+            <p class="co">Xmind</p>
+            <div class="tags">
+              <span>女性访谈</span>
+              <span>Prompt 调优</span>
+              <span>上下文压缩</span>
+              <span>AI 前端 Demo</span>
+              <span>数据驱动优化</span>
+            </div>
+            <p class="blurb">做女性用户访谈、写 Prompt，还搭了前端 Demo</p>
+          </div>
+        </article>
+        <article>
+          <div class="bar" aria-hidden="true"></div>
+          <div>
+            <div class="when">2023.07 — 2024.05</div>
+            <h3>产品经理（老年心理游戏）</h3>
+            <p class="co">中国科学院心理研究所</p>
+            <div class="tags">
+              <span>移动 / 体感游戏设计</span>
+              <span>老年需求访谈</span>
+              <span>产品迭代</span>
+            </div>
+            <p class="blurb">做移动和体感游戏，也访谈过老年用户</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="box">
+      <p class="cta-title">有兴趣的话，直接找我</p>
+      <div class="cta-row" aria-label="联系方式">
+        <a href="mailto:zhiyigai2@gmail.com">邮箱 zhiyigai2@gmail.com</a>
+        <span class="sep" aria-hidden="true">｜</span>
+        <a href="tel:+8618085179987">手机 (86) 180 8517 9987</a>
+        <span class="sep" aria-hidden="true">｜</span>
+        <span class="pill">可到岗 · 2026年11月</span>
+        <span class="sep" aria-hidden="true">｜</span>
+        <a href="https://github.com/GAI810" target="_blank" rel="noopener">GitHub · GAI810</a>
+        <span class="sep" aria-hidden="true">｜</span>
+        <a href="assets/gai-zhiyi-resume.pdf" download="盖之怿-简历.pdf">简历 PDF</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="tweaks-fab" type="button" id="tweaksToggle" aria-expanded="false" aria-controls="tweaksPanel" title="Tweaks">调</button>
+<div class="tweaks-panel" id="tweaksPanel" role="dialog" aria-label="设计调参">
+  <div class="head">
+    <strong>Tweaks</strong>
+    <button type="button" id="tweaksClose" aria-label="关闭">×</button>
+  </div>
+  <label>
+    主色
+    <input type="color" id="tAccent" value="#4F3F8A" />
+  </label>
+  <label>
+    圆角 (<span id="tRadiusVal">24</span>px)
+    <input type="range" id="tRadius" min="12" max="36" step="1" value="24" />
+  </label>
+  <label>
+    字号 (<span id="tFontVal">16</span>px)
+    <input type="range" id="tFont" min="14" max="18" step="1" value="16" />
+  </label>
+  <div class="row">
+    <button class="btn" type="button" id="tReset">重置</button>
+  </div>
+</div>
+
+<script>
+function toggleSkill(id){
+  const el=document.getElementById(id);
+  if(!el) return;
+  const open=el.classList.toggle('open');
+  const btn=el.querySelector('button.skill-head');
+  if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+const TWEAK_DEFAULTS={accent:'#4F3F8A',radius:24,fontSize:16};
+const TWEAK_KEY='portfolio-bento-soft-tweaks';
+
+function loadTweaks(){
+  try{
+    const raw=localStorage.getItem(TWEAK_KEY);
+    return raw ? {...TWEAK_DEFAULTS, ...JSON.parse(raw)} : {...TWEAK_DEFAULTS};
+  }catch{ return {...TWEAK_DEFAULTS}; }
+}
+
+function saveTweaks(t){
+  try{ localStorage.setItem(TWEAK_KEY, JSON.stringify(t)); }catch{}
+}
+
+function applyTweaks(t){
+  const root=document.documentElement;
+  root.style.setProperty('--accent', t.accent);
+  root.style.setProperty('--lav-ink', t.accent);
+  root.style.setProperty('--radius', t.radius+'px');
+  root.style.setProperty('--radius-sm', Math.max(12, t.radius-6)+'px');
+  root.style.setProperty('--base', t.fontSize+'px');
+  const a=document.getElementById('tAccent');
+  const r=document.getElementById('tRadius');
+  const f=document.getElementById('tFont');
+  if(a) a.value=t.accent;
+  if(r){ r.value=t.radius; document.getElementById('tRadiusVal').textContent=t.radius; }
+  if(f){ f.value=t.fontSize; document.getElementById('tFontVal').textContent=t.fontSize; }
+}
+
+(function initTweaks(){
+  const allow=new URLSearchParams(location.search).has('tweaks');
+  if(!allow){
+    document.documentElement.classList.remove('tweaks-on');
+    return;
+  }
+  document.documentElement.classList.add('tweaks-on');
+
+  let tweaks=loadTweaks();
+  applyTweaks(tweaks);
+
+  const panel=document.getElementById('tweaksPanel');
+  const toggle=document.getElementById('tweaksToggle');
+  const close=document.getElementById('tweaksClose');
+  if(!panel||!toggle||!close) return;
+
+  function setOpen(v){
+    panel.classList.toggle('open', v);
+    toggle.setAttribute('aria-expanded', v ? 'true' : 'false');
+  }
+  toggle.addEventListener('click', ()=> setOpen(!panel.classList.contains('open')));
+  close.addEventListener('click', ()=> setOpen(false));
+
+  document.getElementById('tAccent').addEventListener('input', e=>{
+    tweaks.accent=e.target.value; applyTweaks(tweaks); saveTweaks(tweaks);
+  });
+  document.getElementById('tRadius').addEventListener('input', e=>{
+    tweaks.radius=+e.target.value; applyTweaks(tweaks); saveTweaks(tweaks);
+  });
+  document.getElementById('tFont').addEventListener('input', e=>{
+    tweaks.fontSize=+e.target.value; applyTweaks(tweaks); saveTweaks(tweaks);
+  });
+  document.getElementById('tReset').addEventListener('click', ()=>{
+    tweaks={...TWEAK_DEFAULTS}; applyTweaks(tweaks);
+    try{ localStorage.removeItem(TWEAK_KEY); }catch{}
+  });
+})();
+
+(function navSpy(){
+  const links=[...document.querySelectorAll('.nav-links a[href^="#"], .nav-scroll a[href^="#"]')];
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  const map=new Map();
+  links.forEach(a=>{
+    const id=a.getAttribute('href').slice(1);
+    if(!id) return;
+    if(!map.has(id)) map.set(id, []);
+    map.get(id).push(a);
+  });
+  const sections=[...map.keys()].map(id=>document.getElementById(id)).filter(Boolean);
+  if(!sections.length) return;
+  let current='';
+  function setOn(id){
+    if(id===current) return;
+    current=id;
+    links.forEach(a=>a.classList.toggle('is-on', a.getAttribute('href')==='#'+id));
+  }
+  const obs=new IntersectionObserver((entries)=>{
+    const visible=entries
+      .filter(e=>e.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio);
+    if(visible[0]) setOn(visible[0].target.id);
+  },{rootMargin:'-28% 0px -55% 0px', threshold:[0.08,0.18,0.35,0.55]});
+  sections.forEach(s=>obs.observe(s));
+  // initial
+  const hash=location.hash.slice(1);
+  if(hash && map.has(hash)) setOn(hash);
+  else if(sections[0]) setOn(sections[0].id);
+})();
+
+(function miniSnake(){
+  const canvas=document.getElementById('snakeCanvas');
+  const card=document.getElementById('snake-card');
+  if(!canvas||!card) return;
+  const ctx=canvas.getContext('2d');
+  const scoreEl=document.getElementById('snakeScore');
+  const hintEl=document.getElementById('snakeHint');
+  const playEl=document.getElementById('snakePlay');
+  const overlay=document.getElementById('snakeOverlay');
+  const restartBtn=document.getElementById('snakeRestart');
+
+  const COLS=16, ROWS=16;
+  const cell=()=> canvas.width/COLS;
+  const colors={
+    boardTop:'#FBF9FF', boardBot:'#F3EEFF',
+    grid:'rgba(79,63,138,.06)',
+    snake:'#4F3F8A', snakeHead:'#8B3D52',
+    food:'#2A6B56', foodSoft:'#BFE5D6'
+  };
+
+  let snake, dir, nextDir, food, score, tick, alive, running, visible=true, focused=false;
+  const SPEED=130;
+
+  function randFood(){
+    let p;
+    do{
+      p={x:(Math.random()*COLS)|0, y:(Math.random()*ROWS)|0};
+    }while(snake.some(s=>s.x===p.x && s.y===p.y));
+    return p;
+  }
+
+  function reset(){
+    snake=[{x:6,y:8},{x:5,y:8},{x:4,y:8}];
+    dir={x:1,y:0}; nextDir={x:1,y:0};
+    food=randFood(); score=0; alive=true; running=false;
+    scoreEl.textContent=String(score);
+    hintEl.textContent='点棋盘或按键开始';
+    playEl.classList.remove('is-over');
+    overlay.setAttribute('aria-hidden','true');
+    draw();
+  }
+
+  function setDir(nx,ny){
+    if(dir.x+nx===0 && dir.y+ny===0) return;
+    nextDir={x:nx,y:ny};
+    if(!running && alive) start();
+  }
+
+  function start(){
+    if(!alive) return;
+    running=true;
+    hintEl.textContent='方向键 / WASD';
+    if(!tick) tick=setInterval(step, SPEED);
+  }
+
+  function pause(){
+    running=false;
+    if(tick){ clearInterval(tick); tick=null; }
+    if(alive) hintEl.textContent='已暂停';
+  }
+
+  function gameOver(){
+    alive=false; running=false;
+    if(tick){ clearInterval(tick); tick=null; }
+    playEl.classList.add('is-over');
+    overlay.setAttribute('aria-hidden','false');
+    hintEl.textContent='再来一局？';
+  }
+
+  function step(){
+    if(!running || !alive) return;
+    dir=nextDir;
+    const head={x:snake[0].x+dir.x, y:snake[0].y+dir.y};
+    if(head.x<0||head.y<0||head.x>=COLS||head.y>=ROWS || snake.some(s=>s.x===head.x&&s.y===head.y)){
+      gameOver(); draw(); return;
+    }
+    snake.unshift(head);
+    if(head.x===food.x && head.y===food.y){
+      score+=1; scoreEl.textContent=String(score); food=randFood();
+    }else snake.pop();
+    draw();
+  }
+
+  function draw(){
+    const s=cell();
+    const g=ctx.createLinearGradient(0,0,0,canvas.height);
+    g.addColorStop(0, colors.boardTop); g.addColorStop(1, colors.boardBot);
+    ctx.fillStyle=g; ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.strokeStyle=colors.grid; ctx.lineWidth=1;
+    for(let i=1;i<COLS;i++){ ctx.beginPath(); ctx.moveTo(i*s+.5,0); ctx.lineTo(i*s+.5,canvas.height); ctx.stroke(); }
+    for(let j=1;j<ROWS;j++){ ctx.beginPath(); ctx.moveTo(0,j*s+.5); ctx.lineTo(canvas.width,j*s+.5); ctx.stroke(); }
+    // food
+    const fr=s*0.28;
+    ctx.fillStyle=colors.foodSoft;
+    ctx.beginPath(); ctx.arc(food.x*s+s/2, food.y*s+s/2, s*0.38, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle=colors.food;
+    ctx.beginPath(); ctx.arc(food.x*s+s/2, food.y*s+s/2, fr, 0, Math.PI*2); ctx.fill();
+    // snake
+    snake.forEach((seg,i)=>{
+      const pad=i===0?2.2:3.2;
+      const r=Math.max(4, s*0.28);
+      const x=seg.x*s+pad, y=seg.y*s+pad, w=s-pad*2, h=s-pad*2;
+      ctx.fillStyle=i===0?colors.snakeHead:colors.snake;
+      ctx.beginPath();
+      ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
+      ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); ctx.fill();
+    });
+  }
+
+  function shouldCaptureKeys(){
+    return focused || (visible && running);
+  }
+
+  document.addEventListener('keydown', (e)=>{
+    const map={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],
+      w:[0,-1],W:[0,-1],s:[0,1],S:[0,1],a:[-1,0],A:[-1,0],d:[1,0],D:[1,0]};
+    const v=map[e.key];
+    if(!v) return;
+    if(!shouldCaptureKeys() && e.target!==canvas) return;
+    // only prevent scroll when interacting with snake
+    if(focused || running || e.target===canvas){
+      e.preventDefault();
+      setDir(v[0],v[1]);
+    }
+  }, {passive:false});
+
+  canvas.addEventListener('click', ()=>{ focused=true; canvas.focus?.(); if(alive && !running) start(); });
+  canvas.setAttribute('tabindex','0');
+  canvas.addEventListener('focus', ()=>{ focused=true; });
+  canvas.addEventListener('blur', ()=>{ focused=false; if(running) pause(); });
+
+  // touch swipe
+  let tx=0,ty=0;
+  canvas.addEventListener('touchstart', e=>{
+    const t=e.changedTouches[0]; tx=t.clientX; ty=t.clientY; focused=true;
+  }, {passive:true});
+  canvas.addEventListener('touchend', e=>{
+    const t=e.changedTouches[0];
+    const dx=t.clientX-tx, dy=t.clientY-ty;
+    if(Math.hypot(dx,dy)<18){ if(alive && !running) start(); return; }
+    if(Math.abs(dx)>Math.abs(dy)) setDir(dx>0?1:-1, 0);
+    else setDir(0, dy>0?1:-1);
+  }, {passive:true});
+
+  card.querySelectorAll('.snake-pad [data-dir]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const d=btn.getAttribute('data-dir');
+      const map={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
+      const v=map[d]; if(v) setDir(v[0],v[1]);
+    });
+  });
+
+  restartBtn.addEventListener('click', ()=>{ reset(); focused=true; });
+
+  window.addEventListener('blur', ()=>{ if(running) pause(); });
+  document.addEventListener('visibilitychange', ()=>{ if(document.hidden && running) pause(); });
+
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((entries)=>{
+      const ent=entries[0];
+      visible=!!(ent && ent.isIntersecting && ent.intersectionRatio>0.2);
+      if(!visible && running) pause();
+    }, {threshold:[0,0.2,0.5]});
+    io.observe(card);
+  }
+
+  reset();
+})();
+</script>
+</body>
+</html>

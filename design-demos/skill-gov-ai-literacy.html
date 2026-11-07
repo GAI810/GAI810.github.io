@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skill 专题 — 政企 AI 认知课 · 浅色 Bento 软版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" />
+<style>
+:root{
+  --bg:#D5CEF0;
+  --bg-2:#E4DFF5;
+  --ink:#14161C;
+  --mute:#3A4050;
+  --card:#FFFFFF;
+  --line:rgba(28,31,38,.08);
+  --pink:#F0C8D4;
+  --mint:#BFE5D6;
+  --lav:#D4CCF0;
+  --pink-ink:#8B3D52;
+  --mint-ink:#2A6B56;
+  --lav-ink:#4F3F8A;
+  --accent:#4F3F8A;
+  --radius:24px;
+  --radius-sm:18px;
+  --soft-shadow:0 14px 36px -20px rgba(28,31,38,.30);
+  --font:"Plus Jakarta Sans","Noto Sans SC",system-ui,sans-serif;
+  --base:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  font-size:var(--base);
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 45% at 8% 0%, rgba(244,200,214,.72), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 96% 6%, rgba(180,220,210,.55), transparent 50%),
+    radial-gradient(ellipse 48% 48% at 72% 92%, rgba(180,170,230,.52), transparent 55%),
+    var(--bg);
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(100% - 2.25rem, 1120px);margin-inline:auto}
+
+
+
+.nav{
+  position:sticky;top:0;z-index:40;
+  backdrop-filter:blur(16px) saturate(1.15);
+  -webkit-backdrop-filter:blur(16px) saturate(1.15);
+  background:rgba(213,206,240,.86);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px;gap:1rem}
+.brand{font-weight:700;font-size:15px;letter-spacing:-.2px;display:inline-flex;align-items:center;gap:8px}
+.brand .pill{
+  font-size:12px;font-weight:700;color:#fff;
+  background:var(--accent);padding:4px 10px;border-radius:999px;
+}
+.nav-links{display:flex;gap:2px;list-style:none;flex-wrap:wrap}
+.nav-links a{
+  padding:8px 12px;font-size:13px;color:var(--mute);
+  border-radius:999px;font-weight:500;transition:background .15s,color .15s,box-shadow .15s;
+}
+.nav-links a:hover,.nav-links a.is-on{
+  background:#fff;color:var(--ink);box-shadow:var(--soft-shadow);
+}
+
+.sec{padding:2.85rem 0 3.25rem}
+.sec.tight{padding-top:0}
+.sec-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:1.25rem;gap:1rem;flex-wrap:wrap;
+}
+.sec-head h2{
+  font-size:clamp(1.5rem,2.6vw,1.95rem);
+  font-weight:800;letter-spacing:-.45px;
+}
+.sec-head p{font-size:14px;color:var(--mute);max-width:48ch}
+
+.hero{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--soft-shadow);
+  padding:1.55rem 1.6rem 1.5rem;
+  display:grid;
+  grid-template-columns:10px 1fr;
+  gap:1.15rem;
+  margin-bottom:14px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;right:-48px;top:-60px;width:220px;height:220px;
+  border-radius:45% 55% 50% 50%;
+  background:radial-gradient(circle at 35% 35%, rgba(191,229,214,.55), rgba(212,204,240,.28) 58%, transparent 72%);
+  pointer-events:none;
+}
+.hero .bar{
+  border-radius:999px;min-height:100%;
+  background:linear-gradient(180deg,var(--mint),var(--lav));
+}
+.hero-body{position:relative;z-index:1;min-width:0}
+.hero-top{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  margin-bottom:.55rem;
+}
+.hero-role{
+  font-size:12px;font-weight:700;color:#fff;
+  background:var(--mint-ink);padding:4px 11px;border-radius:999px;
+}
+.hero-when{font-size:12px;font-weight:600;color:var(--mute)}
+.hero h1{
+  font-size:clamp(1.35rem,2.6vw,1.75rem);
+  font-weight:800;letter-spacing:-.45px;line-height:1.25;
+  margin-bottom:.2rem;
+}
+.hero .co{font-size:14px;color:var(--mute);margin-bottom:.85rem;font-weight:500}
+.hero .bg{
+  font-size:14px;color:var(--mute);max-width:68ch;
+  margin-bottom:1.15rem;line-height:1.65;
+}
+.hero .bg strong{color:var(--ink);font-weight:700}
+
+.back-row{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  margin-bottom:1.1rem;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;
+  padding:9px 16px;border-radius:999px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--lav-ink);
+  box-shadow:var(--soft-shadow);
+  transition:background .15s,box-shadow .15s,transform .15s;
+}
+.btn:hover{background:var(--bg-2);transform:translateY(-1px)}
+.btn.primary{
+  background:var(--accent);color:#fff;border-color:transparent;
+}
+.btn.primary:hover{background:#3f3270;color:#fff}
+.btn .arrow{font-size:14px;opacity:.85}
+
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:.2rem}
+.pill-tag{
+  font-size:12px;font-weight:600;
+  padding:5px 11px;border-radius:999px;
+  background:var(--bg-2);border:1px solid var(--line);color:var(--mute);
+}
+.pill-tag.code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:var(--lav-ink);background:rgba(212,204,240,.45);
+}
+
+.grid-3{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  margin-bottom:14px;
+}
+.tile{
+  border-radius:var(--radius-sm);
+  border:1px solid var(--line);
+  padding:1.05rem 1.15rem .95rem;
+  min-height:118px;
+  box-shadow:0 8px 22px -16px rgba(28,31,38,.22);
+  display:flex;flex-direction:column;gap:.35rem;
+}
+.tile.pink{background:linear-gradient(165deg,#FBE8EE,var(--pink))}
+.tile.mint{background:linear-gradient(165deg,#E8F7F1,var(--mint))}
+.tile.lav{background:linear-gradient(165deg,#EEEAF8,var(--lav))}
+.tile .k{font-size:12px;font-weight:700;color:var(--mute)}
+.tile .v{font-size:1.02rem;font-weight:800;letter-spacing:-.3px;line-height:1.35}
+.tile.pink .v{color:var(--pink-ink)}
+.tile.mint .v{color:var(--mint-ink)}
+.tile.lav .v{color:var(--lav-ink)}
+.tile .s{font-size:13px;color:var(--mute);line-height:1.5;font-weight:500}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--soft-shadow);
+  padding:1.35rem 1.45rem 1.4rem;
+  margin-bottom:14px;
+}
+.card h3{
+  font-size:1.12rem;font-weight:800;letter-spacing:-.3px;
+  margin-bottom:.55rem;
+}
+.card .lead{font-size:14px;color:var(--mute);margin-bottom:1rem;max-width:68ch}
+
+.q-list{display:flex;flex-direction:column;gap:8px;list-style:none;counter-reset:q}
+.q-list li{
+  counter-increment:q;
+  display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;
+  background:linear-gradient(165deg,#FBF9FF,var(--bg-2));
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:.85rem 1rem;
+}
+.q-list li::before{
+  content:counter(q);
+  width:28px;height:28px;border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:800;color:#fff;background:var(--accent);
+  margin-top:1px;
+}
+.q-list li span{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5}
+
+.path-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+}
+.path{
+  border-radius:var(--radius-sm);
+  border:1px solid var(--line);
+  padding:1.05rem 1.1rem;
+  background:#fff;
+  min-height:150px;
+  display:flex;flex-direction:column;gap:.4rem;
+}
+.path.a{background:linear-gradient(165deg,#FBE8EE,rgba(240,200,212,.55))}
+.path.b{background:linear-gradient(165deg,#E8F7F1,rgba(191,229,214,.55))}
+.path.c{background:linear-gradient(165deg,#EEEAF8,rgba(212,204,240,.6))}
+.path .label{font-size:12px;font-weight:700;color:var(--mute)}
+.path h4{font-size:15px;font-weight:800;letter-spacing:-.2px}
+.path p{font-size:13px;color:var(--mute);line-height:1.55;flex:1}
+.path .door{
+  align-self:flex-start;
+  font-size:12px;font-weight:700;
+  padding:4px 10px;border-radius:999px;
+  background:rgba(255,255,255,.75);
+  border:1px solid var(--line);
+  color:var(--lav-ink);
+}
+
+.check{
+  list-style:none;display:flex;flex-direction:column;gap:8px;
+}
+.check li{
+  display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;
+  font-size:14px;color:var(--mute);line-height:1.55;
+  padding:.55rem .7rem;
+  border-radius:14px;
+  background:rgba(255,255,255,.55);
+  border:1px solid var(--line);
+}
+.check li i{
+  width:16px;height:16px;margin-top:3px;border-radius:5px;
+  border:1.5px solid rgba(79,63,138,.35);
+  background:#fff;
+  display:inline-block;
+}
+
+.time-grid{
+  display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:10px;
+}
+.time{
+  border-radius:var(--radius-sm);
+  border:1px solid var(--line);
+  padding:1.05rem 1.15rem;
+  background:linear-gradient(165deg,#FBF9FF,var(--bg-2));
+  min-height:140px;
+}
+.time.mint{background:linear-gradient(165deg,#E8F7F1,var(--mint))}
+.time.pink{background:linear-gradient(165deg,#FBE8EE,var(--pink))}
+.time .k{font-size:12px;font-weight:700;color:var(--mute);margin-bottom:.35rem}
+.time h4{font-size:15px;font-weight:800;margin-bottom:.45rem;letter-spacing:-.2px}
+.time p{font-size:13px;color:var(--mute);line-height:1.55}
+
+.redlines{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.red{
+  border-radius:var(--radius-sm);
+  border:1px solid rgba(139,61,82,.16);
+  background:linear-gradient(165deg,#FFF8FA,#FBE8EE);
+  padding:1rem 1.1rem;
+  font-size:13px;color:var(--mute);line-height:1.55;
+}
+.red strong{display:block;color:var(--pink-ink);font-size:13px;font-weight:800;margin-bottom:.35rem}
+
+.proof{
+  display:grid;grid-template-columns:1.3fr .9fr;gap:10px;
+}
+.proof-main,.proof-side{
+  border-radius:var(--radius-sm);
+  border:1px solid var(--line);
+  padding:1.1rem 1.2rem;
+}
+.proof-main{background:linear-gradient(165deg,#FBF9FF,var(--bg-2))}
+.proof-side{background:linear-gradient(165deg,#E8F7F1,var(--mint))}
+.proof h4{font-size:14px;font-weight:800;margin-bottom:.45rem}
+.proof p{font-size:13px;color:var(--mute);line-height:1.55}
+.proof a.linkish{
+  display:inline-flex;margin-top:.75rem;
+  font-size:13px;font-weight:700;color:var(--mint-ink);
+  padding:6px 12px;border-radius:999px;
+  background:rgba(255,255,255,.75);
+  border:1px solid var(--line);
+}
+
+footer{padding:1.5rem 0 3.5rem}
+footer .box{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:1.35rem 1.5rem;
+  box-shadow:var(--soft-shadow);
+  display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;justify-content:space-between;
+}
+footer .meta{font-size:13px;color:var(--mute)}
+footer .contact{display:flex;flex-wrap:wrap;gap:10px}
+footer .contact a{
+  font-size:13px;font-weight:700;color:var(--lav-ink);
+  padding:6px 12px;border-radius:999px;
+  background:var(--bg-2);border:1px solid var(--line);
+}
+footer .contact a:hover{background:#fff;box-shadow:var(--soft-shadow)}
+
+@media (max-width:960px){
+  .grid-3,.path-grid,.time-grid,.redlines,.proof{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media (max-width:520px){
+  .wrap{width:min(100% - 1.5rem, 1120px)}
+  .sec{padding:2rem 0 2.5rem}
+  .hero,.card{padding:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../index.html">盖之怿<span class="pill">市场传播 X AI Native</span></a>
+        <ul class="nav-links">
+      <li><a href="../index.html#top">首页</a></li>
+      <li><a href="../index.html#about">关于</a></li>
+      <li><a href="../index.html#projects">产品</a></li>
+      <li><a class="is-on" href="#skill">Skills</a></li>
+      <li><a href="../index.html#articles">文章</a></li>
+      <li><a href="../index.html#experience">经历</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="sec" id="skill">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Skill 专题</h2>
+        <p>卖可复用的课骨架，不卖单场回放。经历侧社会证明见市监局页。</p>
+      </div>
+
+      <article class="hero" aria-label="政企 AI 认知课">
+        <div class="bar" aria-hidden="true"></div>
+        <div class="hero-body">
+          <div class="hero-top">
+            <span class="hero-role">可复用方法</span>
+            <span class="hero-when">政企 / 机关 / 国企 · 认知课与工作坊</span>
+          </div>
+          <h1>政企 AI 认知课</h1>
+          <p class="co">Skill · <code style="font-size:13px">gov-enterprise-ai-literacy</code></p>
+          <p class="bg">核心理念是<strong>「先讲清真实工作，再导航工具与资料」</strong>——先讲清真实工作目标或现场问题，再导航到合适的资料、工具或人。换主办方时，把受众、场景池、可用能力与合规红线填进同一套流程，就能量身出议程与案例。</p>
+
+          <div class="back-row">
+            <a class="btn" href="exp-msa-ai-training.html"><span class="arrow">←</span> 市监局 AI 培训经历</a>
+            <a class="btn primary" href="mailto:zhiyigai2@gmail.com?subject=政企AI认知课·共创议程">合作共创议程</a>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill-tag code">gov-enterprise-ai-literacy</span>
+            <span class="pill-tag">75′ 分享会</span>
+            <span class="pill-tag">半天 / 一天工作坊</span>
+            <span class="pill-tag">不做纯产品发布会</span>
+          </div>
+        </div>
+      </article>
+
+      <div class="grid-3" aria-label="听众带走三样">
+        <div class="tile pink">
+          <div class="k">带走 1</div>
+          <div class="v">适合自己的入口</div>
+          <div class="s">工具或资料从哪里开始用</div>
+        </div>
+        <div class="tile mint">
+          <div class="k">带走 2</div>
+          <div class="v">可验证的做法</div>
+          <div class="s">从业务资料走到可核对结果</div>
+        </div>
+        <div class="tile lav">
+          <div class="k">带走 3</div>
+          <div class="v">最小案例材料</div>
+          <div class="s">能照着试的一页起步说明</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tight" aria-label="五问与三条路径">
+    <div class="wrap">
+      <div class="card">
+        <h3>每一段演示都回答同一套五问</h3>
+        <p class="lead">先把事说清楚，再决定走哪条路；不要先背工具名。</p>
+        <ol class="q-list">
+          <li><span>我现在要做什么？</span></li>
+          <li><span>必须知道哪些业务信息／约束？</span></li>
+          <li><span>已有能力帮我处理了哪一步？</span></li>
+          <li><span>我实际拿到了什么结果？</span></li>
+          <li><span>怎样验证？同事如何复现？</span></li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>三条常见路径</h3>
+        <p class="lead">按客户现场能力改名，别写死某一厂商。有知识库／能力索引时，把它当成第一站。</p>
+        <div class="path-grid">
+          <div class="path a">
+            <div class="label">路径 A</div>
+            <h4>做成一件事</h4>
+            <p>从目标出发，进「构建／编排」类平台或工作流。</p>
+            <span class="door">怎么进门 · 目标</span>
+          </div>
+          <div class="path b">
+            <div class="label">路径 B</div>
+            <h4>定位一个问题</h4>
+            <p>从截图／报错／异常出发，进排查／质检类 Agent 或知识检索。</p>
+            <span class="door">怎么进门 · 问题</span>
+          </div>
+          <div class="path c">
+            <div class="label">路径 C</div>
+            <h4>做出一个判断</h4>
+            <p>目标或问题都可以；进带来源的知识检索，再人工确认。</p>
+            <span class="door">怎么进门 · 目标或问题</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tight" aria-label="开课前与时长">
+    <div class="wrap">
+      <div class="card">
+        <h3>开课前必须收齐</h3>
+        <p class="lead">向主办方／业务方索取或一起确认（摘要）。</p>
+        <ul class="check">
+          <li><i aria-hidden="true"></i><span>受众画像：岗位、人数、是否用过 AI、是否有内部工具权限</span></li>
+          <li><i aria-hidden="true"></i><span>场景池：3–5 个能上台的真实工作问题（须可脱敏）</span></li>
+          <li><i aria-hidden="true"></i><span>可用能力清单：谁能用、入口、权限、预览／内测／正式</span></li>
+          <li><i aria-hidden="true"></i><span>合规红线：敏感字段、对外口径、不能展示的系统与数据</span></li>
+          <li><i aria-hidden="true"></i><span>时长与形态：75′ 分享会／半天／一天工作坊</span></li>
+          <li><i aria-hidden="true"></i><span>嘉宾各备 1 个成熟可复现案例；会后反馈入口</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>时长怎么切</h3>
+        <p class="lead">默认 75′ 工具串联分享会；工作坊则压缩演示、加长练习。</p>
+        <div class="time-grid">
+          <div class="time mint">
+            <div class="k">默认</div>
+            <h4>75 分钟分享会</h4>
+            <p>开场路径图 → 能力平台／垂类／导航／构建 → 收束成一个会后动作。等待超过约 60 秒切备份录屏。</p>
+          </div>
+          <div class="time">
+            <div class="k">加长练习</div>
+            <h4>半天工作坊</h4>
+            <p>自带真实工作 → 交接模板拆题 → 沙箱试跑 → 互评验收。</p>
+          </div>
+          <div class="time pink">
+            <div class="k">深潜 + 合规</div>
+            <h4>一天工作坊</h4>
+            <p>上午框架与两条路径；下午第三条路径、合规专题与部门最小可试方案路演。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tight" aria-label="合规与社会证明">
+    <div class="wrap">
+      <div class="card">
+        <h3>合规红线（必讲，且贯穿演示）</h3>
+        <p class="lead">上屏可极简，备注写全。不替代法务／网信的正式合规审查。</p>
+        <div class="redlines">
+          <div class="red"><strong>敏感不上屏</strong>个人敏感信息、未脱敏工单／截图不上屏；演示账号权限最小化。</div>
+          <div class="red"><strong>有答案 ≠ 有依据</strong>必须打开来源；找不到就明说。预览／测试／已上线分开讲。</div>
+          <div class="red"><strong>不承诺提效百分比</strong>对比须同任务、同材料、同验收；无核验数据不上屏。</div>
+          <div class="red"><strong>边界讲清楚</strong>专用工具缩小范围、减少重复排查；最终确认仍由责任人完成。</div>
+        </div>
+      </div>
+
+      <div class="proof">
+        <div class="proof-main">
+          <h4>共创落地</h4>
+          <p>议程与案例需与甲方共创：摸清听众 → 场景脱敏 → 核对能力清单 → 定合规红线。当前是可复用骨架，落地时按客户能力替换三条路径上的具体系统。</p>
+        </div>
+        <div class="proof-side">
+          <h4>社会证明</h4>
+          <p>市监局 AI 认知培训经历证明主持／设计过真实政企场；本页证明方法能被下一家复用。</p>
+          <a class="linkish" href="exp-msa-ai-training.html">查看市监局经历 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="box">
+      <p class="meta">设计示例页 · Skill 专题详页 · 浅色 Bento 软版 · 与经历页互跳</p>
+      <div class="contact">
+        <a href="mailto:zhiyigai2@gmail.com">zhiyigai2@gmail.com</a>
+        <a href="https://github.com/GAI810/Gai" target="_blank" rel="noopener">GitHub · GAI810/Gai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>经历示例 — LOFTER × CPSP 整合营销 · 浅色 Bento 软版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" />
+<style>
+:root{
+  --bg:#D5CEF0;
+  --bg-2:#E4DFF5;
+  --ink:#14161C;
+  --mute:#3A4050;
+  --card:#FFFFFF;
+  --line:rgba(28,31,38,.08);
+  --pink:#F0C8D4;
+  --mint:#BFE5D6;
+  --lav:#D4CCF0;
+  --pink-ink:#8B3D52;
+  --mint-ink:#2A6B56;
+  --lav-ink:#4F3F8A;
+  --accent:#4F3F8A;
+  --radius:24px;
+  --radius-sm:18px;
+  --soft-shadow:0 14px 36px -20px rgba(28,31,38,.30);
+  --font:"Plus Jakarta Sans","Noto Sans SC",system-ui,sans-serif;
+  --base:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  font-size:var(--base);
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 45% at 8% 0%, rgba(244,200,214,.72), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 96% 6%, rgba(180,220,210,.55), transparent 50%),
+    radial-gradient(ellipse 48% 48% at 72% 92%, rgba(180,170,230,.52), transparent 55%),
+    var(--bg);
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+.wrap{width:min(100% - 2.25rem, 1120px);margin-inline:auto}
+
+
+
+.nav{
+  position:sticky;top:0;z-index:40;
+  backdrop-filter:blur(16px) saturate(1.15);
+  -webkit-backdrop-filter:blur(16px) saturate(1.15);
+  background:rgba(213,206,240,.86);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px;gap:1rem}
+.brand{font-weight:700;font-size:15px;letter-spacing:-.2px;display:inline-flex;align-items:center;gap:8px}
+.brand .pill{
+  font-size:12px;font-weight:700;color:#fff;
+  background:var(--accent);padding:4px 10px;border-radius:999px;
+}
+.nav-links{display:flex;gap:2px;list-style:none;flex-wrap:wrap}
+.nav-links a{
+  padding:8px 12px;font-size:13px;color:var(--mute);
+  border-radius:999px;font-weight:500;transition:background .15s,color .15s,box-shadow .15s;
+}
+.nav-links a:hover,.nav-links a.is-on{
+  background:#fff;color:var(--ink);box-shadow:var(--soft-shadow);
+}
+
+.sec{padding:2.85rem 0 3.25rem}
+.sec-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:1.25rem;gap:1rem;flex-wrap:wrap;
+}
+.sec-head h2{
+  font-size:clamp(1.5rem,2.6vw,1.95rem);
+  font-weight:800;letter-spacing:-.45px;
+}
+.sec-head p{font-size:14px;color:var(--mute);max-width:48ch}
+
+/* Case hero card */
+.case{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--soft-shadow);
+  padding:1.55rem 1.6rem 1.55rem;
+  display:grid;
+  grid-template-columns:10px 1fr;
+  gap:1.15rem;
+  margin-bottom:14px;
+  position:relative;
+  overflow:hidden;
+}
+.case::after{
+  content:"";
+  position:absolute;right:-48px;top:-60px;width:220px;height:220px;
+  border-radius:45% 55% 50% 50%;
+  background:radial-gradient(circle at 35% 35%, rgba(240,200,212,.5), rgba(212,204,240,.22) 58%, transparent 72%);
+  pointer-events:none;
+}
+.case .bar{
+  border-radius:999px;min-height:100%;
+  background:linear-gradient(180deg,var(--pink),var(--lav));
+}
+.case-body{position:relative;z-index:1;min-width:0}
+.case-top{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  margin-bottom:.55rem;
+}
+.case-role{
+  font-size:12px;font-weight:700;color:#fff;
+  background:var(--pink-ink);padding:4px 11px;border-radius:999px;
+}
+.case-when{font-size:12px;font-weight:600;color:var(--mute)}
+.case h3{
+  font-size:clamp(1.25rem,2.4vw,1.55rem);
+  font-weight:800;letter-spacing:-.4px;line-height:1.3;
+  margin-bottom:.15rem;
+}
+.case .co{font-size:14px;color:var(--mute);margin-bottom:.85rem;font-weight:500}
+.case .bg{
+  font-size:14px;color:var(--mute);max-width:68ch;
+  margin-bottom:1.15rem;line-height:1.65;
+}
+
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-bottom:1.15rem;
+}
+.metric{
+  border-radius:var(--radius-sm);
+  border:1px solid var(--line);
+  padding:1rem 1.05rem .95rem;
+  min-height:96px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow:0 8px 22px -16px rgba(28,31,38,.22);
+}
+.metric.pink{background:linear-gradient(165deg,#FBE8EE,var(--pink))}
+.metric.mint{background:linear-gradient(165deg,#E8F7F1,var(--mint))}
+.metric.lav{background:linear-gradient(165deg,#EEEAF8,var(--lav))}
+.metric.cream{background:linear-gradient(165deg,#FFF8F0,#F5E6D3)}
+.metric .k{font-size:12px;font-weight:600;color:var(--mute)}
+.metric .v{font-size:clamp(1.15rem,2vw,1.4rem);font-weight:800;letter-spacing:-.5px;line-height:1.2;margin-top:.35rem}
+.metric.pink .v{color:var(--pink-ink)}
+.metric.mint .v{color:var(--mint-ink)}
+.metric.lav .v{color:var(--lav-ink)}
+.metric.cream .v{color:#8A5A2B}
+.metric .s{font-size:12px;color:var(--mute);margin-top:.35rem;font-weight:500}
+
+/* Strategy + model */
+.strat{
+  display:grid;
+  grid-template-columns:1.35fr .9fr;
+  gap:10px;
+  margin-bottom:1.15rem;
+}
+.strat-card,.model-card{
+  border-radius:var(--radius-sm);
+  border:1px solid var(--line);
+  background:linear-gradient(165deg,#FBF9FF,var(--bg-2));
+  padding:1.05rem 1.15rem;
+}
+.strat-card h4,.model-card h4{
+  font-size:14px;font-weight:700;margin-bottom:.45rem;letter-spacing:-.15px;
+}
+.strat-card p,.model-card p{font-size:14px;color:var(--mute);line-height:1.65}
+.model-flow{
+  display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem;
+}
+.model-flow span{
+  font-size:12px;font-weight:700;
+  padding:5px 11px;border-radius:999px;
+  background:#fff;border:1px solid var(--line);color:var(--lav-ink);
+}
+
+/* Visual evidence */
+.block-label{
+  font-size:13px;font-weight:700;color:var(--mute);
+  margin:0 0 .55rem;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  margin-bottom:10px;
+}
+.gallery figure{
+  margin:0;
+  background:#F7F5FC;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  aspect-ratio:3/4;
+  position:relative;
+}
+.gallery figure img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+}
+.gallery figcaption{
+  position:absolute;left:6px;right:6px;bottom:6px;
+  font-size:11px;font-weight:700;color:var(--ink);
+  background:rgba(255,255,255,.88);
+  border-radius:999px;padding:3px 8px;
+  text-align:center;
+  backdrop-filter:blur(6px);
+}
+.ext-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1.1fr 1.1fr .85fr;
+  gap:8px;
+  margin-bottom:1.15rem;
+}
+.ext-grid figure{
+  margin:0;
+  background:#F7F5FC;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  min-height:140px;
+  position:relative;
+}
+.ext-grid figure img{
+  width:100%;height:160px;object-fit:cover;object-position:top center;
+}
+.ext-grid figcaption{
+  font-size:12px;font-weight:600;color:var(--mute);
+  padding:8px 10px 10px;
+}
+.ph{
+  display:flex;align-items:center;justify-content:center;
+  min-height:160px;height:100%;
+  background:linear-gradient(165deg,#EEEAF8,var(--lav));
+  color:var(--lav-ink);font-size:13px;font-weight:700;
+  border-radius:16px;
+}
+
+/* Exec points */
+.exec{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:.35rem;
+}
+.exec article{
+  border-radius:var(--radius-sm);
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:1rem 1.1rem;
+  box-shadow:0 8px 22px -16px rgba(28,31,38,.18);
+}
+.exec article.wide{grid-column:1 / -1}
+.exec .tag{
+  display:inline-block;
+  font-size:12px;font-weight:700;color:var(--lav-ink);
+  background:rgba(212,204,240,.55);
+  padding:3px 9px;border-radius:999px;margin-bottom:.4rem;
+}
+.exec h4{font-size:15px;font-weight:700;margin-bottom:.3rem;letter-spacing:-.15px}
+.exec p{font-size:14px;color:var(--mute);line-height:1.6}
+
+.more-block{margin-top:1.4rem}
+.more-block .gallery{margin:.8rem 0 1rem}
+.footnote{
+  margin-top:1.1rem;
+  font-size:13px;color:var(--mute);
+  padding:.75rem 1rem;
+  border-radius:var(--radius-sm);
+  border:1px dashed rgba(79,63,138,.22);
+  background:rgba(255,255,255,.45);
+}
+
+footer{padding:1.5rem 0 3.5rem}
+footer .box{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:1.35rem 1.5rem;
+  box-shadow:var(--soft-shadow);
+}
+footer .meta{font-size:13px;color:var(--mute)}
+
+@media (max-width:960px){
+  .metrics{grid-template-columns:1fr 1fr}
+  .strat{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+  .ext-grid{grid-template-columns:1fr 1fr}
+  .exec{grid-template-columns:1fr}
+  .exec article.wide{grid-column:auto}
+  .nav-links{display:none}
+}
+@media (max-width:520px){
+  .wrap{width:min(100% - 1.5rem, 1120px)}
+  .sec{padding:2rem 0 2.5rem}
+  .case{padding:1.25rem}
+  .metrics{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .ext-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../index.html">盖之怿<span class="pill">市场传播 X AI Native</span></a>
+        <ul class="nav-links">
+      <li><a href="../index.html#top">首页</a></li>
+      <li><a href="../index.html#about">关于</a></li>
+      <li><a href="../index.html#projects">产品</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#articles">文章</a></li>
+      <li><a class="is-on" href="#case">经历</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="sec" id="case">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>经历</h2>
+        <p>网易 LOFTER 整合营销案例页示例 · 浅色 Bento 软版</p>
+      </div>
+
+      <article class="case" aria-label="LOFTER × CPSP 整合营销">
+        <div class="bar" aria-hidden="true"></div>
+        <div class="case-body">
+          <div class="case-top">
+            <span class="case-role">核心执行 · 0→1</span>
+            <span class="case-when">2025.6—2025.10 · 网易 LOFTER 实习 · 上海 CP 展</span>
+          </div>
+          <h3>LOFTER × CPSP 整合营销</h3>
+          <p class="co">线下「K嗑学鉴定中心」沉浸展 × 线上全链路传播</p>
+          <p class="bg">面向上海 CP 同人展，想把品牌声量做起来，也拉新、唤回老用户：线下沉浸展位把圈层流量接住，再串上线上预热、话题传播和站内回流。我作为「K嗑学鉴定中心」核心执行，从 0 到 1 管策略、圈层种草、体验动线、话题造势和数据复盘。</p>
+
+          <div class="metrics" aria-label="关键成果">
+            <div class="metric pink">
+              <div class="k">站内曝光</div>
+              <div class="v">4600万</div>
+              <div class="s">平台内触达</div>
+            </div>
+            <div class="metric mint">
+              <div class="k">站外曝光</div>
+              <div class="v">50万+</div>
+              <div class="s">外部传播</div>
+            </div>
+            <div class="metric lav">
+              <div class="k">话题互动</div>
+              <div class="v">10000+</div>
+              <div class="s">UGC 与讨论</div>
+            </div>
+            <div class="metric cream">
+              <div class="k">用户增长</div>
+              <div class="v">3000+</div>
+              <div class="s">活动拉新效果</div>
+            </div>
+          </div>
+
+          <div class="strat">
+            <div class="strat-card">
+              <h4>职责与策略</h4>
+              <p>统筹摊位、物料、传播和搭建预算（6.7 万），对齐展方与站内设计、增长节奏；用同人圈洞察做内容种草，设计「鉴定表 → 属性贴纸墙 → Coser 盖章认证 → 领无料」线下动线，并配上线上话题和抽奖。</p>
+            </div>
+            <div class="model-card">
+              <h4>可复用模型</h4>
+              <p>把线下体验做成大家愿意转发的瞬间，再引回流回站内。</p>
+              <div class="model-flow" aria-label="体验到转化">
+                <span>体验</span>
+                <span>传播</span>
+                <span>种草</span>
+                <span>转化</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="block-label">站内活动页</p>
+          <div class="gallery" aria-label="站内活动页面截图">
+            <figure>
+              <img src="../assets/lofter/inapp-01-landing.png" alt="嗑学鉴定中心活动首页" />
+              <figcaption>活动首页</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/lofter/inapp-02-freebie.png" alt="无料领取页" />
+              <figcaption>无料领取</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/lofter/inapp-03-rules.png" alt="成分测评与步骤页" />
+              <figcaption>测评步骤</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/lofter/inapp-04-result.png" alt="活动结果页视觉" />
+              <figcaption>结果视觉</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/lofter/inapp-05-sticker.png" alt="贴纸墙回顾帖" />
+              <figcaption>贴纸墙回顾</figcaption>
+            </figure>
+          </div>
+
+          <p class="block-label">站外物料 / 现场</p>
+          <div class="ext-grid" aria-label="站外传播与现场">
+            <figure>
+              <img src="../assets/lofter/ext-01-warmup.png" alt="活动预热帖" />
+              <figcaption>活动预热 · 参展确定</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/lofter/ext-02-announce.png" alt="活动宣发帖" />
+              <figcaption>活动宣发 · 鉴定中心</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/lofter/ext-03-review.png" alt="活动回顾帖" />
+              <figcaption>活动回顾 · 现场沉淀</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/lofter/scene-sticker-wall.png" alt="线下属性贴纸墙特写" />
+              <figcaption>现场贴纸墙</figcaption>
+            </figure>
+          </div>
+
+          <p class="block-label">执行要点</p>
+          <div class="exec">
+            <article>
+              <span class="tag">全案统筹</span>
+              <h4>策略与预算</h4>
+              <p>作为核心执行，把 6.7 万预算分到摊位、物料、传播和搭建；对接展方、供应商和站内设计／增长排期，跑通「线上预热 → 线下体验 → 线上传播 → 站内回流」。</p>
+            </article>
+            <article>
+              <span class="tag">圈层种草</span>
+              <h4>内容与 KOL</h4>
+              <p>基于同人圈洞察产出「你的 CP 是哪种属性」「同人女十大美德」等内容；邀约圈层 KOL / 老福鸽拟人 Coser 合作，单帖曝光 20 万+，做垂类精准触达。</p>
+            </article>
+            <article>
+              <span class="tag">线下体验</span>
+              <h4>动线与贴纸墙</h4>
+              <p>主导核心互动区：领鉴定表 → 贴 CP 属性墙 → Coser 盖章认证 → 领周边。两日活动吸引 2100+ 到访（约八成老用户），用打卡机制带动二次传播。</p>
+            </article>
+            <article>
+              <span class="tag">线上裂变</span>
+              <h4>话题与 UGC</h4>
+              <p>策划「XX 和 XX 是真的」等话题，配合五日抽奖（500 份无料）拉动互动；话题互动 10000+，20+ 创作者产出 81 篇内容。</p>
+            </article>
+            <article class="wide">
+              <span class="tag">复盘沉淀</span>
+              <h4>获客成本与 SOP</h4>
+              <p>复盘后获客成本下降约 50%，最低至 3.53 元 / 人；沉淀供应商与 Coser 协作 SOP，方便后续展会复用。</p>
+            </article>
+          </div>
+
+          <div class="more-block" id="koc">
+            <p class="block-label">同段补详 · 分享官 KOC</p>
+            <div class="exec">
+              <article class="wide">
+                <span class="tag">增长</span>
+                <h4>分享官 KOC 拉新</h4>
+                <p>同期跑分享官 KOC 拉新：累计拉新 <strong>16 万+</strong>，获客成本 CPA <strong>0.98</strong>。把圈层信任接到站内增长链路，和 CPSP 展会同一段增长实验。</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="more-block" id="otome">
+            <p class="block-label">同段补详 · 乙女圈层 IP</p>
+            <div class="gallery">
+              <figure>
+                <img src="../assets/lofter/03-otome.png" alt="乙女圈层 IP 联动视觉" />
+                <figcaption>乙女圈层 · IP 联动视觉</figcaption>
+              </figure>
+            </div>
+            <div class="exec">
+              <article class="wide">
+                <span class="tag">圈层 IP</span>
+                <h4>乙女圈层 IP 联动</h4>
+                <p>乙女向 IP 联动带来站内 UV <strong>10 万+</strong>，优质内容量 <strong>+35%</strong>。用圈层内容承接兴趣用户，补齐 CPSP 之外的垂类触达。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="box">
+      <p class="meta">案例页 · 浅色 Bento</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

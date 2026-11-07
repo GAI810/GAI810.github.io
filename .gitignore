@@ -1,0 +1,14 @@
+.venv/
+node_modules/
+_inbox/
+_ops/
+.huashu-design/
+refs/
+shots/
+design-demos/shots/
+design-demos/dir-*.html
+thumbs.html
+*.bak
+package.json
+.env*
+.DS_Store
